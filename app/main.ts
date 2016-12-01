@@ -6,7 +6,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     selector: 'hello-angular',
     template: `
     <div>
-        Hello Angular!
+        Hello Angular! 
+        /Здесь будет новое приложение для личного кабинета сайта FPA/
     </div>
     `
 })

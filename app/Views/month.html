@@ -1,0 +1,13 @@
+
+<div class="month">
+    <table class="monthTable">
+        <tr *ngFor = "let week of month.weeks">
+            <td *ngFor = "let day of week.days" >
+                <div class="day" [ngClass]="{ dayOfmonth: day.inMonth, eventContainer: day.inMonth }">
+                    {{day.number}}
+                    <day></day>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

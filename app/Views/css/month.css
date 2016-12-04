@@ -1,0 +1,30 @@
+
+.monthTable{
+    width: 100%;
+}
+.monthTable td{
+    border: 1px solid #ddd;
+}
+
+    .month {
+        color: cornflowerblue;
+        width: 500px;
+        background-color: bisque;
+    }
+
+.day{
+    height: 70px;
+    padding: 7px;
+}
+
+.dayOfmonth{
+    background-color: aliceblue;    
+}
+
+.eventContainer{
+        
+}
+
+.eventContainer:hover{
+    background-color: #c9c9c9;
+}

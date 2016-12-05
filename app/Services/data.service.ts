@@ -28,4 +28,8 @@ export class DataService {
         }
         return null;
     }
+
+    addItem() {
+        this.events.push( new EventOfDay("mmmmm", new Date(2015, 3, 23), 5) );
+    }
 }

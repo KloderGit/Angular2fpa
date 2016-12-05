@@ -1,3 +1,4 @@
+import { DataService } from './../../Services/data.service';
 import { MonthCalendar } from './../../Models/Month/month.model';
 import { Component } from '@angular/core';
 
@@ -10,7 +11,11 @@ import { Component } from '@angular/core';
 export class MonthComponent{
     month: MonthCalendar;
 
-    constructor(){
+    constructor(private dataService: DataService){
         this.month = new MonthCalendar( new Date(2015, 3) ); 
+    }
+
+    addEvent(){
+        this.dataService.addItem();
     }
 }

@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
     styleUrls: ['./../../Views/css/month.css']    
 })
 export class MonthComponent{
-
     month: MonthCalendar;
 
     constructor(){

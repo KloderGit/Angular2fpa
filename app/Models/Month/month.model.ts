@@ -44,11 +44,13 @@ export class MonthCalendar {
                     let diff = offsetWeekDay - cellIndex;
                     let oldDate = new Date(this.year, this.month, 1);
                     oldDate.setDate(date.getDate() - diff);                     
-                    currentDay.number = oldDate.getDate();
+                    currentDay.dateCalendar = oldDate;
                 } else {
                     currentDay = new DayCalendar();
                     currentDay.inMonth = true;
-                    currentDay.number = dayIndex;
+                    let curDate = new Date(this.year, this.month, 1);
+                    curDate.setDate(date.getDate() + (dayIndex -1));
+                    currentDay.dateCalendar = curDate;
                     dayIndex++;
                 }
 

@@ -4,8 +4,8 @@
         <tr *ngFor = "let week of month.weeks">
             <td *ngFor = "let day of week.days" >
                 <div class="day" [ngClass]="{ dayOfmonth: day.inMonth, eventContainer: day.inMonth }">
-                    {{day.number}}
-                    <day></day>
+                    <!--{{day.dateCalendar.getDate()}}-->
+                    <day [date] = "day.dateCalendar"></day>
                 </div>
             </td>
         </tr>

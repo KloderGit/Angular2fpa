@@ -1,4 +1,5 @@
 
 <div>
-    <p>{{event.id}}</p>
+    <p>{{date.getDate()}}</p>
+    <p *ngIf = "event != null">{{ event.Date.getDate() }}</p>
 </div>

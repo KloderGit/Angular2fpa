@@ -1,10 +1,10 @@
-import { Day } from './day.month.model';
+import { DayCalendar } from './day.month.model';
 
-export class Week{
+export class WeekCalendar{
 
-    days: Day[] = [];
+    days: DayCalendar[] = [];
 
-    addDay(day: Day){
+    addDay(day: DayCalendar){
         this.days.push(day);
     }
 

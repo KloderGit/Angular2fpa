@@ -1,13 +1,13 @@
-import { Day } from './day.month.model';
-import { Week } from './week.month.model';
+import { DayCalendar } from './day.month.model';
+import { WeekCalendar } from './week.month.model';
 
-export class Month {
+export class MonthCalendar {
 
     year: number;
     month: number;
     countDays: number;
 
-    weeks: Week[];
+    weeks: WeekCalendar[];
 
     constructor(date: Date) {
         this.weeks = new Array();
@@ -31,24 +31,22 @@ export class Month {
 
         for (let weekNumber = 0; weekNumber < countTableRows; weekNumber++) {
 
-            let currentWeek: Week = new Week();
+            let currentWeek: WeekCalendar = new WeekCalendar();
 
             for (let dayWeekNumber = 0; dayWeekNumber < 7; dayWeekNumber++) {
 
-                let currentDay: Day;
+                let currentDay: DayCalendar;
 
                 if (cellIndex < offsetWeekDay || cellIndex > ( this.countDays + offsetWeekDay - 1)) {
-                    currentDay = new Day();
+                    currentDay = new DayCalendar();
                     currentDay.inMonth = false;
-
-                            // debugger;
                     
                     let diff = offsetWeekDay - cellIndex;
                     let oldDate = new Date(this.year, this.month, 1);
                     oldDate.setDate(date.getDate() - diff);                     
                     currentDay.number = oldDate.getDate();
                 } else {
-                    currentDay = new Day();
+                    currentDay = new DayCalendar();
                     currentDay.inMonth = true;
                     currentDay.number = dayIndex;
                     dayIndex++;

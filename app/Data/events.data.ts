@@ -1,13 +1,13 @@
-import { Event } from './../Models/event';
+import { EventOfDay } from './../Models/eventOfDay';
 
-export let events: Event[] =
+export let events: EventOfDay[] =
 [
-    new Event( "qqqq", new Date("2/12/2016"), false, 5 ),
-    new Event( "wwww", new Date("12/12/2016"), false, 5 ),
-    new Event( "eeee", new Date("22/12/2016"), false, 5 ),
-    new Event( "rrrr", new Date("5/12/2016"), false, 5 ),
-    new Event( "tttt", new Date("15/12/2016"), false, 5 ),
-    new Event( "yyyy", new Date("25/12/2016"), false, 5 ),
-    new Event( "uuuu", new Date("9/12/2016"), false, 5 ),
-    new Event( "iiii", new Date("19/12/2016"), false, 5 )
+    new EventOfDay( "qqqq", new Date("2/12/2016"), 5 ),
+    new EventOfDay( "wwww", new Date("12/12/2016"), 5 ),
+    new EventOfDay( "eeee", new Date("22/12/2016"), 5 ),
+    new EventOfDay( "rrrr", new Date("5/12/2016"), 5 ),
+    new EventOfDay( "tttt", new Date("15/12/2016"), 5 ),
+    new EventOfDay( "yyyy", new Date("25/12/2016"), 5 ),
+    new EventOfDay( "uuuu", new Date("9/12/2016"), 5 ),
+    new EventOfDay( "iiii", new Date("19/12/2016"), 5 )
 ];

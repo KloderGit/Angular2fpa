@@ -1,4 +1,4 @@
-import { Month } from './../../Models/Month/month.model';
+import { MonthCalendar } from './../../Models/Month/month.model';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,9 +9,9 @@ import { Component } from '@angular/core';
 })
 export class MonthComponent{
 
-    month: Month;
+    month: MonthCalendar;
 
     constructor(){
-        this.month = new Month( new Date(2015, 3) ); 
+        this.month = new MonthCalendar( new Date(2015, 3) ); 
     }
 }

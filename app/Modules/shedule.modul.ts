@@ -1,3 +1,4 @@
+import { ListMonth } from './../Components/ListMonth/list.month.component';
 import { WatchData } from './../Components/Watch/watch.component';
 import { DataService } from './../Services/data.service';
 import { DayComponent } from './../Components/Day/day.component';
@@ -8,8 +9,8 @@ import { NgModule, Component } from '@angular/core';
 
 @NgModule({
     imports: [ BrowserModule, FormsModule ],
-    declarations: [ MonthComponent, DayComponent, WatchData ],
-    bootstrap: [ MonthComponent ],
+    declarations: [ MonthComponent, DayComponent, WatchData, ListMonth ],
+    bootstrap: [ ListMonth ],
     providers: [ DataService ]
 })
 

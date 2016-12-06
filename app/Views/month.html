@@ -1,7 +1,7 @@
 
 <div class="month">
     <table class="monthTable">
-        <tr *ngFor = "let week of month.weeks">
+        <tr *ngFor = "let week of monthCalendar.weeks">
             <td *ngFor = "let day of week.days" >
                 <div class="day" [ngClass]="{ dayOfmonth: day.inMonth, eventContainer: day.inMonth }">
                     <!--{{day.dateCalendar.getDate()}}-->
@@ -11,6 +11,9 @@
         </tr>
     </table>
 </div>
+
+<p>Дата - {{month}}</p>
+
     <button (click)="addEvent()">+ 25</button>
 
     <watch></watch>

@@ -6,8 +6,7 @@ import { EventOfDay } from './../../Models/eventOfDay';
     moduleId: module.id,
     selector: 'day',
     templateUrl: './../../Views/day.html',
-    styleUrls: ['./../../Views/css/day.css'],
-    providers: [DataService]
+    styleUrls: ['./../../Views/css/day.css']
 })
 export class DayComponent {
 

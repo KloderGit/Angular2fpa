@@ -18,8 +18,10 @@ var Month = (function () {
     ], Month.prototype, "events", void 0);
     Month = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'month',
-            template: "\n            <p *ngFor = \"let event of events\">\n                <day [event] = \"event\"></day>\n            </p>\n    "
+            styleUrls: ['./../Views/css/month.css'],
+            templateUrl: './../Views/month.html'
         }), 
         __metadata('design:paramtypes', [])
     ], Month);

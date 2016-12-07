@@ -17,10 +17,14 @@ var Day = (function () {
         core_1.Input(), 
         __metadata('design:type', event_model_1.Event)
     ], Day.prototype, "event", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], Day.prototype, "date", void 0);
     Day = __decorate([
         core_1.Component({
             selector: 'day',
-            template: "\n        <p>{{event.id}}</p>\n    "
+            template: "\n        <p *ngIf = \"event != null\" >{{event.date.getDate()}}</p>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], Day);

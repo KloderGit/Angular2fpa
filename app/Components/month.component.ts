@@ -2,12 +2,10 @@ import { Event } from './../Models/event.model';
 import { Component, Input } from '@angular/core';
 
 @Component({
+    moduleId: module.id,
     selector: 'month',
-    template: `
-            <p *ngFor = "let event of events">
-                <day [event] = "event"></day>
-            </p>
-    `
+    styleUrls: ['./../Views/css/month.css'],
+    templateUrl: './../Views/month.html' 
 })
 export class Month{
     @Input() events: Event[];

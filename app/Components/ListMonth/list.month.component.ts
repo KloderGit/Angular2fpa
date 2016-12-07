@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
     selector: 'listmonth',
     template: `
     <div *ngFor="let cm of listMonts">
-        <month [month] = "cm"></month>
+        <month [month] = "cm" [events] = "events"></month>
     </div>    
     `
 })
 export class ListMonth implements OnInit{
 
-    // events: EventOfDay[] = this.dataService.getServiceData();
+    events: EventOfDay[] = this.dataService.getServiceData();
 
     listMonts: Date[] = this.dataService.getAviableMonth();
 

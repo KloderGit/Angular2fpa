@@ -1,7 +1,9 @@
+import { EventOfDay } from './../eventOfDay';
 
-export class DayCalendar{
+export class calendarDay{
 
     inMonth: boolean;
     dateCalendar: Date;
+    event: EventOfDay;
 
 }

@@ -19,7 +19,7 @@ export class DataService implements OnInit {
         new EventOfDay("tttt", new Date(2015, 3, 9), 5),
         new EventOfDay("yyyy", new Date(2015, 3, 1), 5),
         new EventOfDay("uuuu", new Date(2015, 3, 8), 5),
-        new EventOfDay("iiii", new Date(2015, 5, 12), 5)
+        new EventOfDay("iiii", new Date(2015, 3, 12), 5)
     ];
 
     constructor(){

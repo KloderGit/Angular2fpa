@@ -1,5 +1,5 @@
-import { DataService } from './../../Services/data.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { calendarDay } from './../../Models/Month/day.month.model';
+import { Component, Input } from '@angular/core';
 import { EventOfDay } from './../../Models/eventOfDay';
 
 @Component({
@@ -10,13 +10,6 @@ import { EventOfDay } from './../../Models/eventOfDay';
 })
 export class DayComponent {
 
-    @Input() date;
+    @Input() eventDay: calendarDay;
 
-    event: EventOfDay;
-
-   constructor(private dataService: DataService){ }
-
-    ngOnInit() {
-        this.event = this.dataService.findItem(this.date);
-    }
 }

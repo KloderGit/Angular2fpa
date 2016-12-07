@@ -8,31 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var mock_data_1 = require('./../Data/mock.data');
 var event_model_1 = require('./../Models/event.model');
 var core_1 = require('@angular/core');
-var Shedule = (function () {
-    function Shedule() {
-        this.events = [];
+var Day = (function () {
+    function Day() {
     }
-    Shedule.prototype.ngOnInit = function () {
-        this.events = mock_data_1.events;
-    };
-    Shedule.prototype.Add = function () {
-        this.events.push(new event_model_1.Event("888", new Date(2015, 3, 25)));
-    };
-    Shedule.prototype.Upd = function () {
-        this.events[2].id = "99999";
-    };
-    Shedule = __decorate([
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', event_model_1.Event)
+    ], Day.prototype, "event", void 0);
+    Day = __decorate([
         core_1.Component({
-            selector: 'shedule',
-            styleUrls: ['app/Views/css/shedule.css'],
-            template: "\n        <div>\n            <calendar [events] = \"events\"></calendar>\n        </div>\n        <button (click) = \"Add()\">Add</button>\n                <button (click) = \"Upd()\">Upd</button>\n\n    "
+            selector: 'day',
+            template: "\n        <p>{{event.id}}</p>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], Shedule);
-    return Shedule;
+    ], Day);
+    return Day;
 }());
-exports.Shedule = Shedule;
-//# sourceMappingURL=shedule.component.js.map
+exports.Day = Day;
+//# sourceMappingURL=day.component.js.map

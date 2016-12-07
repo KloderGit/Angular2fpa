@@ -1,30 +1,37 @@
-import { Item } from './../Models/Item';
-import { Component } from '@angular/core';
+import { events } from './../Data/mock.data';
+import { Event } from './../Models/event.model';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'shedule',
     styleUrls: ['app/Views/css/shedule.css'],
-    templateUrl: 'app/Views/shedule.html'
+    template: `
+        <div>
+            <calendar [events] = "events"></calendar>
+        </div>
+        <button (click) = "Add()">Add</button>
+                <button (click) = "Upd()">Upd</button>
+
+    `
+    // templateUrl: 'app/Views/shedule.html'
 })
 
-export class Shedule{
-    items: Item[] =
-    [
-        { purchase: "Хлеб", done: false, price: 15.9 },
-        { purchase: "Масло", done: false, price: 60 },
-        { purchase: "Картофель", done: true, price: 22.6 },
-        { purchase: "Сыр", done: false, price:310 }
-    ];
+export class Shedule implements OnInit{
+    events: Event[];
 
-    addItem(text: string, price: number): void {
-        if ( text == null || text == undefined || text.trim() == "") {
-            return;
-        }
+    constructor(){
+        this.events = []; 
+    }
 
-        if ( price == null || price == undefined) {
-            return;
-        }
+    ngOnInit(){
+        this.events = events;
+    }
 
-        this.items.push(new Item(text, null, price));
+    Add(){
+        this.events.push( new Event( "888", new Date(2015, 3, 25)));
+    }
+
+    Upd(){
+        this.events[2].id = "99999";
     }
 }

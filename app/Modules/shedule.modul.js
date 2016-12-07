@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var day_component_1 = require('./../Components/day.component');
+var month_component_1 = require('./../Components/month.component');
+var calendar_component_1 = require('./../Components/calendar.component');
 var forms_1 = require('@angular/forms');
 var shedule_component_1 = require('./../Components/shedule.component');
 var platform_browser_1 = require('@angular/platform-browser');
@@ -18,7 +21,7 @@ var SheduleAppModule = (function () {
     SheduleAppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [shedule_component_1.Shedule],
+            declarations: [shedule_component_1.Shedule, calendar_component_1.Calendar, month_component_1.Month, day_component_1.Day],
             bootstrap: [shedule_component_1.Shedule]
         }), 
         __metadata('design:paramtypes', [])

@@ -17,10 +17,6 @@ var Day = (function () {
         core_1.Input(), 
         __metadata('design:type', event_model_1.Event)
     ], Day.prototype, "event", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Date)
-    ], Day.prototype, "date", void 0);
     Day = __decorate([
         core_1.Component({
             selector: 'day',

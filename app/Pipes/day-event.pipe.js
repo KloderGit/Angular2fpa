@@ -8,26 +8,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var calendar_mode_1 = require('./../Models/calendar.mode');
 var core_1 = require('@angular/core');
-var Month = (function () {
-    function Month() {
-        this.grid = new calendar_mode_1.CalendarGrid(new Date(2015, 3, 10));
+var DayEventPipe = (function () {
+    function DayEventPipe() {
     }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Array)
-    ], Month.prototype, "events", void 0);
-    Month = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'month',
-            styleUrls: ['./../Views/css/month.css'],
-            templateUrl: './../Views/month.html'
+    DayEventPipe.prototype.transform = function (array, date) {
+        for (var i = 0; i < array.length; i++) {
+            var indexDate = array[i].date;
+            var findDate = date;
+            debugger;
+            if (+indexDate == +findDate) {
+                return array[i];
+            }
+        }
+    };
+    DayEventPipe = __decorate([
+        core_1.Pipe({
+            name: 'event',
+            pure: false
         }), 
         __metadata('design:paramtypes', [])
-    ], Month);
-    return Month;
+    ], DayEventPipe);
+    return DayEventPipe;
 }());
-exports.Month = Month;
-//# sourceMappingURL=month.component.js.map
+exports.DayEventPipe = DayEventPipe;
+//# sourceMappingURL=day-event.pipe.js.map

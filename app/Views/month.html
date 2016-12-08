@@ -1,32 +1,9 @@
-<!--<p *ngFor="let event of events">
-    <day [event]="event"></day>
-</p>-->
-
-<table>
-<tr>
-    <td><day [event]="events[1]" [date] = "'11'"></day></td>
-    <td><day [date] = "'11'"></day></td>
-    <td><day [event]="events[2]" [date] = "'11'"></day></td>
-</tr>
-<tr>
-    <td><day [event]="events[3]" [date] = "'11'"></day></td>
-    <td><day [date] = "'11'"></day></td>
-    <td><day [event]="events[4]" [date] = "'11'"></day></td>
-</tr>
-<tr>
-    <td><day [event]="events[5]" [date] = "'11'"></day></td>
-    <td><day [event]="events[6]" [date] = "'11'"></day></td>
-    <td><day [event]="events[7]" [date] = "'11'"></day></td>
-</tr>
-</table>
-
-
 <table>
 <tr *ngFor = "let week of grid.weeks">
     <td *ngFor = "let day of week.days">
-        {{day.inmonth}}
+        <!--{{day.inmonth}}-->
         {{day.date.getDate()}}
-        <day [event]="events[2]" [date] = "day.date"></day>
+        <day [event]="events | event:day.date"></day>
     </td>
 </tr>
 </table>

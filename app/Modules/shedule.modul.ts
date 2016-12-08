@@ -1,3 +1,4 @@
+import { DayEventPipe } from './../Pipes/day-event.pipe';
 import { Day } from './../Components/day.component';
 import { Month } from './../Components/month.component';
 import { Calendar } from './../Components/calendar.component';
@@ -8,7 +9,7 @@ import { NgModule, Component } from '@angular/core';
 
 @NgModule({
     imports: [ BrowserModule, FormsModule ],
-    declarations: [ Shedule, Calendar, Month, Day ],
+    declarations: [ Shedule, Calendar, Month, Day, DayEventPipe ],
     bootstrap: [ Shedule ]
 })
 

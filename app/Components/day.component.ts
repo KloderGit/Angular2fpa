@@ -10,5 +10,4 @@ import { Component, Input } from '@angular/core';
 })
 export class Day{
     @Input() event: Event;
-    @Input() date: Date;
 }

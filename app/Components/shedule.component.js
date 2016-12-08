@@ -19,7 +19,7 @@ var Shedule = (function () {
         this.events = mock_data_1.events;
     };
     Shedule.prototype.Add = function () {
-        this.events.push(new event_model_1.Event("888", new Date(2015, 3, 25)));
+        this.events.push(new event_model_1.Event("888", new Date(2015, 5, 25)));
     };
     Shedule.prototype.Upd = function () {
         this.events[2].id = "99999";

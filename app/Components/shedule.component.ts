@@ -28,7 +28,7 @@ export class Shedule implements OnInit{
     }
 
     Add(){
-        this.events.push( new Event( "888", new Date(2015, 3, 25)));
+        this.events.push( new Event( "888", new Date(2015, 5, 25) ) );
     }
 
     Upd(){

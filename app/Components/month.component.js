@@ -8,10 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var calendar_mode_1 = require('./../Models/calendar.mode');
 var core_1 = require('@angular/core');
 var Month = (function () {
     function Month() {
+        this.grid = new calendar_mode_1.CalendarGrid(new Date(2015, 3, 10));
     }
+    ;
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)

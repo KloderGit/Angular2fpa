@@ -1,6 +1,5 @@
-import { DataService } from './../../Services/data.service';
+import { events } from './../../Data/events.data';
 import { Component } from '@angular/core';
-
 
 @Component({
     selector: 'watch',
@@ -11,7 +10,5 @@ import { Component } from '@angular/core';
     `
 })
 export class WatchData{
-       itemsArray = this.dataService.getServiceData();
-
-       constructor(private dataService: DataService){ }
+       itemsArray = events;
 }

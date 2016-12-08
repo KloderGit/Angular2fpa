@@ -1,26 +1,30 @@
+import { events } from './../../Data/events.data';
 import { EventOfDay } from './../../Models/eventOfDay';
-import { DataService } from './../../Services/data.service';
-import { MonthCalendar } from './../../Models/Month/month.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
-    selector: 'listmonth',
+    selector: 'monthsList',
     template: `
-    <div *ngFor="let cm of listMonts">
-        <month [month] = "cm"></month>
-    </div>    
+        <div>
+            <p *ngFor = "let event of EventsOfMonth">
+                {{event.Id}}
+            </p>
+        </div>
     `
 })
-export class ListMonth implements OnInit{
-
-    // events: EventOfDay[] = this.dataService.getServiceData();
-
-    listMonts: Date[] = this.dataService.getAviableMonth();
-
-    constructor(private dataService: DataService){}
-
-    ngOnInit(){
+export class ListMonth implements OnInit, OnChanges {
+    @Input() EventsOfMonth: EventOfDay[];
+    
+    ngOnChanges(changes: SimpleChanges){
+     for (let propName in changes) {
+        let chng = changes[propName];
+        let cur  = JSON.stringify(chng.currentValue);
+        let prev = JSON.stringify(chng.previousValue);
+        console.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+      }
     }
 
-    
+    ngOnInit(){
+        // debugger;
+    }
 }

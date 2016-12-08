@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { DataService } from './../../Services/data.service';
 import { MonthCalendar } from './../../Models/Month/month.model';
 
 @Component({
@@ -9,22 +8,14 @@ import { MonthCalendar } from './../../Models/Month/month.model';
     templateUrl: './../../Views/month.html',
     styleUrls: ['./../../Views/css/month.css']    
 })
-export class MonthComponent implements OnInit{
+export class MonthComponent{
 
     @Input() month: Date;
 
     monthCalendar: MonthCalendar;
 
-    constructor(private dataService: DataService){
-    }
 
-    ngOnInit(){
-        this.monthCalendar = new MonthCalendar( this.month ); 
-        debugger;
-
-    }
 
     addEvent(){
-        this.dataService.addItem();
     }
 }

@@ -1,17 +1,13 @@
+import { Discipline } from './../Components/Discipline/discipline.component';
 import { ListMonth } from './../Components/ListMonth/list.month.component';
-import { WatchData } from './../Components/Watch/watch.component';
-import { DataService } from './../Services/data.service';
-import { DayComponent } from './../Components/Day/day.component';
-import { MonthComponent } from './../Components/Month/month.component';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
+
 
 @NgModule({
-    imports: [ BrowserModule, FormsModule ],
-    declarations: [ MonthComponent, DayComponent, WatchData, ListMonth ],
-    bootstrap: [ ListMonth ],
-    providers: [ DataService ]
+    imports: [ BrowserModule ],
+    declarations: [ ListMonth, Discipline ],
+    bootstrap: [ Discipline ]
 })
 
 export class SheduleAppModule {}

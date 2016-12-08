@@ -21,6 +21,7 @@ var MonthEventsPipe = (function () {
                 monthArray.push(+currenDate);
             }
         }
+        monthArray.sort();
         for (var i = 0; i < monthArray.length; i++) {
             var findDate = monthArray[i];
             var tempArray = [];

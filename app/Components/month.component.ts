@@ -15,5 +15,9 @@ export class Month implements OnInit{
 
     ngOnInit(){
         this.grid = new CalendarGrid( this.events[0].date );   
-    }    
+    } 
+
+    getMonthName(){
+        return this.events[0].date.toLocaleString("ru-ru", { month: "long" });
+    }   
 }

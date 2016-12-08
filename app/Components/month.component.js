@@ -16,6 +16,9 @@ var Month = (function () {
     Month.prototype.ngOnInit = function () {
         this.grid = new calendar_mode_1.CalendarGrid(this.events[0].date);
     };
+    Month.prototype.getMonthName = function () {
+        return this.events[0].date.toLocaleString("ru-ru", { month: "long" });
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)

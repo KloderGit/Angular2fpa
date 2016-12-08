@@ -17,6 +17,8 @@ export class MonthEventsPipe implements PipeTransform {
             }
       }
 
+      monthArray.sort();
+
       for( let i = 0; i < monthArray.length; i++){
           let findDate = monthArray[i];
           let tempArray = [];

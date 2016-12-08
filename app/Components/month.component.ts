@@ -11,5 +11,5 @@ import { Component, Input } from '@angular/core';
 export class Month{
     @Input() events: Event[];
 
-    grid = new CalendarGrid( new Date(2015,3,10));
+    grid = new CalendarGrid( new Date(2015,3,10));;
 }

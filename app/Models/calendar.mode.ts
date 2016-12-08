@@ -30,7 +30,7 @@ export class CalendarGrid{
 
             for (let dayWeekNumber = 0; dayWeekNumber < 7; dayWeekNumber++) {
 
-                let currentDay: cDay;
+                let currentDay: cDay = new Date();
 
                 if (cellIndex < offsetWeekDay || cellIndex > ( this.countDays + offsetWeekDay - 1)) {
                     currentDay = new cDay();

@@ -1,6 +1,6 @@
 import { CalendarGrid } from './../Models/calendar.mode';
 import { Event } from './../Models/event.model';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -8,8 +8,12 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./../Views/css/month.css'],
     templateUrl: './../Views/month.html' 
 })
-export class Month{
+export class Month implements OnInit{
     @Input() events: Event[];
 
-    grid = new CalendarGrid( new Date(2015,3,10));
+    grid: CalendarGrid; 
+
+    ngOnInit(){
+        this.grid = new CalendarGrid( this.events[0].date );   
+    }    
 }

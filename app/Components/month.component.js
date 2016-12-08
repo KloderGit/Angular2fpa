@@ -12,8 +12,10 @@ var calendar_mode_1 = require('./../Models/calendar.mode');
 var core_1 = require('@angular/core');
 var Month = (function () {
     function Month() {
-        this.grid = new calendar_mode_1.CalendarGrid(new Date(2015, 3, 10));
     }
+    Month.prototype.ngOnInit = function () {
+        this.grid = new calendar_mode_1.CalendarGrid(this.events[0].date);
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)

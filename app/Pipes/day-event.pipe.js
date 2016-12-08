@@ -16,7 +16,6 @@ var DayEventPipe = (function () {
         for (var i = 0; i < array.length; i++) {
             var indexDate = array[i].date;
             var findDate = date;
-            debugger;
             if (+indexDate == +findDate) {
                 return array[i];
             }

@@ -12,8 +12,6 @@ export class DayEventPipe implements PipeTransform {
 
         let indexDate = array[i].date;
         let findDate = date;
-                debugger;    
-
         if( +indexDate == +findDate ){
             return array[i];
         } 

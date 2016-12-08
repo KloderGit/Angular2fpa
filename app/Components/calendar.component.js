@@ -12,27 +12,14 @@ var core_1 = require('@angular/core');
 var Calendar = (function () {
     function Calendar() {
     }
-    Object.defineProperty(Calendar.prototype, "events", {
-        get: function () { return this._events; },
-        set: function (array) {
-            this._events = array;
-            console.log("Обновление");
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Calendar.prototype.curData = function () {
-        return this._events;
-    };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Array), 
-        __metadata('design:paramtypes', [Array])
-    ], Calendar.prototype, "events", null);
+        __metadata('design:type', Array)
+    ], Calendar.prototype, "events", void 0);
     Calendar = __decorate([
         core_1.Component({
             selector: 'calendar',
-            template: "\n        <div>\n            <month [events] = \"curData()\"></month>\n        </div>\n    "
+            template: "\n        <div *ngFor = \"let month of events | month\">\n            <month [events] = \"month\"></month>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], Calendar);

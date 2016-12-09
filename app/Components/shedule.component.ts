@@ -11,16 +11,21 @@ import { teachers } from './../Data/teachers.mock.data';
     styleUrls: ['app/Views/css/shedule.css'],
     template: `
         <div *ngFor = "let teacher of teachers; let tchrIndx = index">
-            <input name="tchr" type="radio" [value] = "teacher" (change) = "changeTeacher(tchrIndx)">
+            <input name="tchr" type="radio" (change) = "changeTeacher(teacher)">
             <teacher [teacher] = "teacher" ></teacher>
         </div>
 
-        <div *ngFor = "let discipline of disciplines | discp: selectedTeacher">
-            <input name="disc" type="radio" (change) = "changeDiscipline(discipline)">
-            {{discipline.title}}
+        <div *ngIf = "selectedTeacher != null">
+            <div *ngFor = "let discipline of disciplines | discp: selectedTeacher">
+                <input name="disc" type="radio" (change) = "changeDiscipline(discipline)">
+                {{discipline.title}}
+            </div>
         </div>
 
-        <discipline [events] = "events | oneDiscipln: selectedDiscipline" [discipline] = "selectedDiscipline"></discipline>
+        <discipline *ngIf = "selectedDiscipline != null" 
+                    [events] = "events | oneDiscipln: selectedDiscipline" 
+                    [discipline] = "selectedDiscipline">
+        </discipline>
     `
     // templateUrl: 'app/Views/shedule.html'
 })
@@ -43,18 +48,26 @@ export class SheduleComponent implements OnInit{
         this.events = events;
         this.teachers = teachers;
         this.disciplines = discipline;
-
-        this.selectedTeacher = this.teachers[0];
-        this.selectedDiscipline = this.disciplines[0];
     }
 
-    changeTeacher(index: number){
-        this.selectedTeacher = this.teachers[index];
-        console.log(this.selectedTeacher);
+    changeTeacher(teacher: Teacher){
+        this.selectedTeacher = teacher;
+        this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
     }
 
     changeDiscipline(discipline: Discipline){
         this.selectedDiscipline = discipline;
-        console.log(this.selectedDiscipline);
+    }
+
+    findDiscipline(teacher: Teacher){
+        let result: Discipline;
+
+        for( let i=0; i<this.disciplines.length; i++){
+            let tmp = this.disciplines[i];
+            if ( tmp.teacherId == teacher.id ){
+                return this.disciplines[i];
+            }
+        }
+
     }
 }

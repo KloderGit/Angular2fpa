@@ -22,22 +22,28 @@ var SheduleComponent = (function () {
         this.events = events_mock_data_1.events;
         this.teachers = teachers_mock_data_1.teachers;
         this.disciplines = discipline_mock_model_1.discipline;
-        this.selectedTeacher = this.teachers[0];
-        this.selectedDiscipline = this.disciplines[0];
     };
-    SheduleComponent.prototype.changeTeacher = function (index) {
-        this.selectedTeacher = this.teachers[index];
-        console.log(this.selectedTeacher);
+    SheduleComponent.prototype.changeTeacher = function (teacher) {
+        this.selectedTeacher = teacher;
+        this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
     };
     SheduleComponent.prototype.changeDiscipline = function (discipline) {
         this.selectedDiscipline = discipline;
-        console.log(this.selectedDiscipline);
+    };
+    SheduleComponent.prototype.findDiscipline = function (teacher) {
+        var result;
+        for (var i = 0; i < this.disciplines.length; i++) {
+            var tmp = this.disciplines[i];
+            if (tmp.teacherId == teacher.id) {
+                return this.disciplines[i];
+            }
+        }
     };
     SheduleComponent = __decorate([
         core_1.Component({
             selector: 'shedule',
             styleUrls: ['app/Views/css/shedule.css'],
-            template: "\n        <div *ngFor = \"let teacher of teachers; let tchrIndx = index\">\n            <input name=\"tchr\" type=\"radio\" [value] = \"teacher\" (change) = \"changeTeacher(tchrIndx)\">\n            <teacher [teacher] = \"teacher\" ></teacher>\n        </div>\n\n        <div *ngFor = \"let discipline of disciplines | discp: selectedTeacher\">\n            <input name=\"disc\" type=\"radio\" (change) = \"changeDiscipline(discipline)\">\n            {{discipline.title}}\n        </div>\n\n        <discipline [events] = \"events | oneDiscipln: selectedDiscipline\" [discipline] = \"selectedDiscipline\"></discipline>\n    "
+            template: "\n        <div *ngFor = \"let teacher of teachers; let tchrIndx = index\">\n            <input name=\"tchr\" type=\"radio\" (change) = \"changeTeacher(teacher)\">\n            <teacher [teacher] = \"teacher\" ></teacher>\n        </div>\n\n        <div *ngIf = \"selectedTeacher != null\">\n            <div *ngFor = \"let discipline of disciplines | discp: selectedTeacher\">\n                <input name=\"disc\" type=\"radio\" (change) = \"changeDiscipline(discipline)\">\n                {{discipline.title}}\n            </div>\n        </div>\n\n        <discipline *ngIf = \"selectedDiscipline != null\" \n                    [events] = \"events | oneDiscipln: selectedDiscipline\" \n                    [discipline] = \"selectedDiscipline\">\n        </discipline>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], SheduleComponent);

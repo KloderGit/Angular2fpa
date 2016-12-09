@@ -10,17 +10,17 @@ import { teachers } from './../Data/teachers.mock.data';
     selector: 'shedule',
     styleUrls: ['app/Views/css/shedule.css'],
     template: `
-        <div *ngFor = "let teacher of teachers">
-            <input name="tchr" type="radio" (change) = "changeTeacher(teacher)">
-            <teacher [teacher] = teacher ></teacher>
+        <div *ngFor = "let teacher of teachers; let tchrIndx = index">
+            <input name="tchr" type="radio" [value] = "teacher" (change) = "changeTeacher(tchrIndx)">
+            <teacher [teacher] = "teacher" ></teacher>
         </div>
 
-        <div *ngFor = "let discipline of disciplines">
+        <div *ngFor = "let discipline of disciplines | discp: selectedTeacher">
             <input name="disc" type="radio" (change) = "changeDiscipline(discipline)">
             {{discipline.title}}
         </div>
 
-        <discipline [events] = "events"></discipline>
+        <discipline [events] = "events | oneDiscipln: selectedDiscipline" [discipline] = "selectedDiscipline"></discipline>
     `
     // templateUrl: 'app/Views/shedule.html'
 })
@@ -43,10 +43,13 @@ export class SheduleComponent implements OnInit{
         this.events = events;
         this.teachers = teachers;
         this.disciplines = discipline;
+
+        this.selectedTeacher = this.teachers[0];
+        this.selectedDiscipline = this.disciplines[0];
     }
 
-    changeTeacher(teacher: Teacher){
-        this.selectedTeacher = teacher;
+    changeTeacher(index: number){
+        this.selectedTeacher = this.teachers[index];
         console.log(this.selectedTeacher);
     }
 

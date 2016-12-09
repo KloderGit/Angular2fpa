@@ -7,7 +7,7 @@ import { Event } from './../Models/event.model';
 @Component({
     selector: 'discipline',
     template: `
-        <!-- <h2>{{events[0].discipline.title}}</h2> -->
+        <h2 *ngIf = "discipline != null">{{discipline.title}}</h2>
         <div>
             <calendar [events] = "events"></calendar>
         </div>
@@ -15,4 +15,5 @@ import { Event } from './../Models/event.model';
 })
 export class DisciplineComponent{
     @Input() events: Event[];
+    @Input() discipline: Discipline;
 }

@@ -22,9 +22,11 @@ var SheduleComponent = (function () {
         this.events = events_mock_data_1.events;
         this.teachers = teachers_mock_data_1.teachers;
         this.disciplines = discipline_mock_model_1.discipline;
+        this.selectedTeacher = this.teachers[0];
+        this.selectedDiscipline = this.disciplines[0];
     };
-    SheduleComponent.prototype.changeTeacher = function (teacher) {
-        this.selectedTeacher = teacher;
+    SheduleComponent.prototype.changeTeacher = function (index) {
+        this.selectedTeacher = this.teachers[index];
         console.log(this.selectedTeacher);
     };
     SheduleComponent.prototype.changeDiscipline = function (discipline) {
@@ -35,7 +37,7 @@ var SheduleComponent = (function () {
         core_1.Component({
             selector: 'shedule',
             styleUrls: ['app/Views/css/shedule.css'],
-            template: "\n        <div *ngFor = \"let teacher of teachers\">\n            <input name=\"tchr\" type=\"radio\" (change) = \"changeTeacher(teacher)\">\n            <teacher [teacher] = teacher ></teacher>\n        </div>\n\n        <div *ngFor = \"let discipline of disciplines\">\n            <input name=\"disc\" type=\"radio\" (change) = \"changeDiscipline(discipline)\">\n            {{discipline.title}}\n        </div>\n\n        <discipline [events] = \"events\"></discipline>\n    "
+            template: "\n        <div *ngFor = \"let teacher of teachers; let tchrIndx = index\">\n            <input name=\"tchr\" type=\"radio\" [value] = \"teacher\" (change) = \"changeTeacher(tchrIndx)\">\n            <teacher [teacher] = \"teacher\" ></teacher>\n        </div>\n\n        <div *ngFor = \"let discipline of disciplines | discp: selectedTeacher\">\n            <input name=\"disc\" type=\"radio\" (change) = \"changeDiscipline(discipline)\">\n            {{discipline.title}}\n        </div>\n\n        <discipline [events] = \"events | oneDiscipln: selectedDiscipline\" [discipline] = \"selectedDiscipline\"></discipline>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], SheduleComponent);

@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var discipline_model_1 = require('./../Models/discipline.model');
 var core_1 = require('@angular/core');
 var DisciplineComponent = (function () {
     function DisciplineComponent() {
@@ -16,10 +17,14 @@ var DisciplineComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Array)
     ], DisciplineComponent.prototype, "events", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', discipline_model_1.Discipline)
+    ], DisciplineComponent.prototype, "discipline", void 0);
     DisciplineComponent = __decorate([
         core_1.Component({
             selector: 'discipline',
-            template: "\n        <!-- <h2>{{events[0].discipline.title}}</h2> -->\n        <div>\n            <calendar [events] = \"events\"></calendar>\n        </div>\n    "
+            template: "\n        <h2 *ngIf = \"discipline != null\">{{discipline.title}}</h2>\n        <div>\n            <calendar [events] = \"events\"></calendar>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], DisciplineComponent);

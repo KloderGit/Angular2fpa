@@ -8,31 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var calendar_mode_1 = require('./../Models/calendar.mode');
 var core_1 = require('@angular/core');
-var MonthComponent = (function () {
-    function MonthComponent() {
+var TeacherListComponent = (function () {
+    function TeacherListComponent() {
     }
-    MonthComponent.prototype.ngOnInit = function () {
-        this.grid = new calendar_mode_1.CalendarGrid(this.events[0].date);
-    };
-    MonthComponent.prototype.getMonthName = function () {
-        return this.events[0].date.toLocaleString("ru-ru", { month: "long" });
-    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)
-    ], MonthComponent.prototype, "events", void 0);
-    MonthComponent = __decorate([
+    ], TeacherListComponent.prototype, "teachers", void 0);
+    TeacherListComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
-            selector: 'month',
-            styleUrls: ['./../Views/css/month.css'],
-            templateUrl: './../Views/month.html'
+            selector: 'teachers-list',
+            template: "\n        <div *ngFor = \"let teacher of teachers\">\n            <teacher [teacher] = teacher ></teacher>\n        </div>\n\n        <p *ngFor = \"let teacher of teachers\">\n            <input name=\"dzen\" type=\"radio\">\n            <teacher [teacher] = teacher ></teacher>\n        </p>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], MonthComponent);
-    return MonthComponent;
+    ], TeacherListComponent);
+    return TeacherListComponent;
 }());
-exports.MonthComponent = MonthComponent;
-//# sourceMappingURL=month.component.js.map
+exports.TeacherListComponent = TeacherListComponent;
+//# sourceMappingURL=teachers-list.component.js.map

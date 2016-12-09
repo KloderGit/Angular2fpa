@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./../Views/css/month.css'],
     templateUrl: './../Views/month.html' 
 })
-export class Month implements OnInit{
+export class MonthComponent implements OnInit{
     @Input() events: Event[];
 
     grid: CalendarGrid; 

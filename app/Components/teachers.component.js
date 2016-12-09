@@ -8,31 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var calendar_mode_1 = require('./../Models/calendar.mode');
 var core_1 = require('@angular/core');
-var MonthComponent = (function () {
-    function MonthComponent() {
+var teacher_mode_1 = require('./../Models/teacher.mode');
+var TeacherComponent = (function () {
+    function TeacherComponent() {
     }
-    MonthComponent.prototype.ngOnInit = function () {
-        this.grid = new calendar_mode_1.CalendarGrid(this.events[0].date);
-    };
-    MonthComponent.prototype.getMonthName = function () {
-        return this.events[0].date.toLocaleString("ru-ru", { month: "long" });
-    };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Array)
-    ], MonthComponent.prototype, "events", void 0);
-    MonthComponent = __decorate([
+        __metadata('design:type', teacher_mode_1.Teacher)
+    ], TeacherComponent.prototype, "teacher", void 0);
+    TeacherComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
-            selector: 'month',
-            styleUrls: ['./../Views/css/month.css'],
-            templateUrl: './../Views/month.html'
+            selector: 'teacher',
+            template: "\n        <div>\n            <p>\n                {{teacher.name}}\n            </p>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], MonthComponent);
-    return MonthComponent;
+    ], TeacherComponent);
+    return TeacherComponent;
 }());
-exports.MonthComponent = MonthComponent;
-//# sourceMappingURL=month.component.js.map
+exports.TeacherComponent = TeacherComponent;
+//# sourceMappingURL=teachers.component.js.map

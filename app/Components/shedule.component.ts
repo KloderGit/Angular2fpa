@@ -1,37 +1,57 @@
-import { events } from './../Data/mock.data';
+import { discipline } from './../Data/discipline.mock.model';
+import { Teacher } from './../Models/teacher.mode';
+import { Discipline } from './../Models/discipline.model';
+import { events } from './../Data/events.mock.data';
 import { Event } from './../Models/event.model';
 import { Component, OnInit } from '@angular/core';
+import { teachers } from './../Data/teachers.mock.data';
 
 @Component({
     selector: 'shedule',
     styleUrls: ['app/Views/css/shedule.css'],
     template: `
-        <div>
-            <calendar [events] = "events"></calendar>
+        <div *ngFor = "let teacher of teachers">
+            <input name="tchr" type="radio" (change) = "changeTeacher(teacher)">
+            <teacher [teacher] = teacher ></teacher>
         </div>
-        <button (click) = "Add()">Add</button>
-                <button (click) = "Upd()">Upd</button>
 
+        <div *ngFor = "let discipline of disciplines">
+            <input name="disc" type="radio" (change) = "changeDiscipline(discipline)">
+            {{discipline.title}}
+        </div>
+
+        <discipline [events] = "events"></discipline>
     `
     // templateUrl: 'app/Views/shedule.html'
 })
 
-export class Shedule implements OnInit{
+export class SheduleComponent implements OnInit{
     events: Event[];
+    teachers: Teacher[];
+    disciplines: Discipline[];
+
+    selectedTeacher: Teacher;
+    selectedDiscipline: Discipline;
 
     constructor(){
         this.events = []; 
+        this.teachers = [];
+        this.disciplines = [];
     }
 
     ngOnInit(){
         this.events = events;
+        this.teachers = teachers;
+        this.disciplines = discipline;
     }
 
-    Add(){
-        this.events.push( new Event( "999", new Date(2015, 5, 28) ) );
+    changeTeacher(teacher: Teacher){
+        this.selectedTeacher = teacher;
+        console.log(this.selectedTeacher);
     }
 
-    Upd(){
-        this.events[2].id = "99999";
+    changeDiscipline(discipline: Discipline){
+        this.selectedDiscipline = discipline;
+        console.log(this.selectedDiscipline);
     }
 }

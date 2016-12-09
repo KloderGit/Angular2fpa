@@ -9,21 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var CalendarComponent = (function () {
-    function CalendarComponent() {
+var OneDisciplinePipe = (function () {
+    function OneDisciplinePipe() {
     }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Array)
-    ], CalendarComponent.prototype, "events", void 0);
-    CalendarComponent = __decorate([
-        core_1.Component({
-            selector: 'calendar',
-            template: "\n        <div *ngFor = \"let month of events | month\">\n            <month [events] = \"month\"></month>\n        </div>\n    "
+    OneDisciplinePipe.prototype.transform = function (array, discipline) {
+        return array.filter(function (item) {
+            return item.disciplineId == discipline.id;
+        });
+    };
+    OneDisciplinePipe = __decorate([
+        core_1.Pipe({
+            name: 'oneDiscipln',
+            pure: false
         }), 
         __metadata('design:paramtypes', [])
-    ], CalendarComponent);
-    return CalendarComponent;
+    ], OneDisciplinePipe);
+    return OneDisciplinePipe;
 }());
-exports.CalendarComponent = CalendarComponent;
-//# sourceMappingURL=calendar.component.js.map
+exports.OneDisciplinePipe = OneDisciplinePipe;
+//# sourceMappingURL=one-discipline.pipe.js.map

@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
         <!--<p *ngIf = "event != null" >{{event.date.getDate()}}</p>-->
     `
 })
-export class Day{
+export class DayComponent{
     @Input() event: Event;
 }

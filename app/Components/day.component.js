@@ -10,21 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var event_model_1 = require('./../Models/event.model');
 var core_1 = require('@angular/core');
-var Day = (function () {
-    function Day() {
+var DayComponent = (function () {
+    function DayComponent() {
     }
     __decorate([
         core_1.Input(), 
         __metadata('design:type', event_model_1.Event)
-    ], Day.prototype, "event", void 0);
-    Day = __decorate([
+    ], DayComponent.prototype, "event", void 0);
+    DayComponent = __decorate([
         core_1.Component({
             selector: 'day',
             template: "\n        <p *ngIf = \"event != null\" >{{event.id}}</p>\n        <!--<p *ngIf = \"event != null\" >{{event.date.getDate()}}</p>-->\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], Day);
-    return Day;
+    ], DayComponent);
+    return DayComponent;
 }());
-exports.Day = Day;
+exports.DayComponent = DayComponent;
 //# sourceMappingURL=day.component.js.map

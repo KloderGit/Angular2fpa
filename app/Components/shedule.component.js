@@ -8,31 +8,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var mock_data_1 = require('./../Data/mock.data');
-var event_model_1 = require('./../Models/event.model');
+var discipline_mock_model_1 = require('./../Data/discipline.mock.model');
+var events_mock_data_1 = require('./../Data/events.mock.data');
 var core_1 = require('@angular/core');
-var Shedule = (function () {
-    function Shedule() {
+var teachers_mock_data_1 = require('./../Data/teachers.mock.data');
+var SheduleComponent = (function () {
+    function SheduleComponent() {
         this.events = [];
+        this.teachers = [];
+        this.disciplines = [];
     }
-    Shedule.prototype.ngOnInit = function () {
-        this.events = mock_data_1.events;
+    SheduleComponent.prototype.ngOnInit = function () {
+        this.events = events_mock_data_1.events;
+        this.teachers = teachers_mock_data_1.teachers;
+        this.disciplines = discipline_mock_model_1.discipline;
     };
-    Shedule.prototype.Add = function () {
-        this.events.push(new event_model_1.Event("999", new Date(2015, 5, 28)));
+    SheduleComponent.prototype.changeTeacher = function (teacher) {
+        this.selectedTeacher = teacher;
+        console.log(this.selectedTeacher);
     };
-    Shedule.prototype.Upd = function () {
-        this.events[2].id = "99999";
+    SheduleComponent.prototype.changeDiscipline = function (discipline) {
+        this.selectedDiscipline = discipline;
+        console.log(this.selectedDiscipline);
     };
-    Shedule = __decorate([
+    SheduleComponent = __decorate([
         core_1.Component({
             selector: 'shedule',
             styleUrls: ['app/Views/css/shedule.css'],
-            template: "\n        <div>\n            <calendar [events] = \"events\"></calendar>\n        </div>\n        <button (click) = \"Add()\">Add</button>\n                <button (click) = \"Upd()\">Upd</button>\n\n    "
+            template: "\n        <div *ngFor = \"let teacher of teachers\">\n            <input name=\"tchr\" type=\"radio\" (change) = \"changeTeacher(teacher)\">\n            <teacher [teacher] = teacher ></teacher>\n        </div>\n\n        <div *ngFor = \"let discipline of disciplines\">\n            <input name=\"disc\" type=\"radio\" (change) = \"changeDiscipline(discipline)\">\n            {{discipline.title}}\n        </div>\n\n        <discipline [events] = \"events\"></discipline>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], Shedule);
-    return Shedule;
+    ], SheduleComponent);
+    return SheduleComponent;
 }());
-exports.Shedule = Shedule;
+exports.SheduleComponent = SheduleComponent;
 //# sourceMappingURL=shedule.component.js.map

@@ -10,6 +10,6 @@ import { Component, Input } from '@angular/core';
         </div>
     `
 })
-export class Calendar{
+export class CalendarComponent{
     @Input() events: Event[];
 }

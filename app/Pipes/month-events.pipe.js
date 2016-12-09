@@ -22,16 +22,14 @@ var MonthEventsPipe = (function () {
             }
         }
         monthArray.sort();
+        var _loop_1 = function(i) {
+            result[i] = array.filter(function (item) {
+                var currenDate = new Date(item.date.getFullYear(), item.date.getMonth());
+                return +currenDate == +monthArray[i];
+            });
+        };
         for (var i = 0; i < monthArray.length; i++) {
-            var findDate = monthArray[i];
-            var tempArray = [];
-            for (var j = 0; j < array.length; j++) {
-                var currenDate = new Date(array[j].date.getFullYear(), array[j].date.getMonth());
-                if (+findDate == +currenDate) {
-                    tempArray.push(array[j]);
-                }
-            }
-            result.push(tempArray);
+            _loop_1(i);
         }
         return result;
     };

@@ -24,7 +24,7 @@ var DisciplineComponent = (function () {
     DisciplineComponent = __decorate([
         core_1.Component({
             selector: 'discipline',
-            template: "\n        <h2 *ngIf = \"discipline != null\">{{discipline.title}}</h2>\n        <div>\n            <calendar [events] = \"events\"></calendar>\n        </div>\n    "
+            template: "\n        <div>\n            <calendar [events] = \"events\"></calendar>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], DisciplineComponent);

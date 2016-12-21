@@ -24,20 +24,13 @@ var SheduleComponent = (function () {
         this.disciplines = discipline_mock_model_1.discipline;
     };
     SheduleComponent.prototype.ngAfterViewInit = function () {
-        this.selectedTeacherHTML = document.getElementById('teacher_list');
-        console.log(this.selectedTeacherHTML);
-        // let mmm = this.selectedTeacherHTML.getElementsByClassName('teacher_item')[0];
-        // if (mmm.checked == false)
-        // {
-        // mmm.click();
-        // }
+    };
+    SheduleComponent.prototype.isActive = function (item) {
+        return item == this.selectedDiscipline;
     };
     SheduleComponent.prototype.changeTeacher = function (teacher) {
         this.selectedTeacher = teacher;
         this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
-        // let teacher_disciplines_HTMLElement = document.getElementById('teacher_disciplines');
-        // let teacher_discipline_item_HTMLElement = teacher_disciplines_HTMLElement.getElementsByClassName('teacher_discipline_item')[0];
-        //         console.log(teacher_discipline_item_HTMLElement);
     };
     SheduleComponent.prototype.changeDiscipline = function (discipline) {
         this.selectedDiscipline = discipline;
@@ -55,7 +48,7 @@ var SheduleComponent = (function () {
         core_1.Component({
             selector: 'shedule',
             styleUrls: ['app/Views/css/shedule.css'],
-            template: "\n        <div id=\"teacher_list\">\n            <div *ngFor = \"let teacher of teachers; let tchrIndx = index\" >\n                <input name=\"tchr\" type=\"radio\" (change) = \"changeTeacher(teacher)\" class = \"teacher_item\">\n                <teacher [teacher] = \"teacher\" ></teacher>\n            </div>\n        </div>\n\n        <div *ngIf = \"selectedTeacher != null\" id=\"teacher_disciplines\">\n            <div *ngFor = \"let discipline of disciplines | discp: selectedTeacher\" class=\"teacher_discipline_item\">\n                <input name=\"disc\" type=\"radio\" (change) = \"changeDiscipline(discipline);\">\n                {{discipline.title}}\n            </div>\n        </div>\n\n        <h2 *ngIf = \"selectedDiscipline != null\">{{selectedDiscipline.title}}</h2>\n\n        <discipline *ngIf = \"selectedDiscipline != null\" \n                    [events] = \"events | oneDiscipln: selectedDiscipline\" >\n        </discipline>\n    "
+            templateUrl: 'app/Views/shedule.html'
         }), 
         __metadata('design:paramtypes', [])
     ], SheduleComponent);

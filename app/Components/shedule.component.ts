@@ -37,14 +37,6 @@ export class SheduleComponent implements OnInit, AfterViewInit{
         this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
     }
 
-    isActive(item: Discipline){
-        return item == this.selectedDiscipline;
-    }
-
-    teacherSelect(teacher: Teacher){
-        return teacher == this.selectedTeacher;
-    }
-
     changeTeacher(teacher: Teacher){
         this.selectedTeacher = teacher;
         this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
@@ -55,14 +47,11 @@ export class SheduleComponent implements OnInit, AfterViewInit{
     }
 
     findDiscipline(teacher: Teacher){
-        let result: Discipline;
-
         for( let i=0; i<this.disciplines.length; i++){
             let tmp = this.disciplines[i];
             if ( tmp.teacherId == teacher.id ){
                 return this.disciplines[i];
             }
         }
-
     }
 }

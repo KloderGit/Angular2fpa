@@ -27,12 +27,6 @@ var SheduleComponent = (function () {
         this.selectedTeacher = this.teachers[0];
         this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
     };
-    SheduleComponent.prototype.isActive = function (item) {
-        return item == this.selectedDiscipline;
-    };
-    SheduleComponent.prototype.teacherSelect = function (teacher) {
-        return teacher == this.selectedTeacher;
-    };
     SheduleComponent.prototype.changeTeacher = function (teacher) {
         this.selectedTeacher = teacher;
         this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
@@ -41,7 +35,6 @@ var SheduleComponent = (function () {
         this.selectedDiscipline = discipline;
     };
     SheduleComponent.prototype.findDiscipline = function (teacher) {
-        var result;
         for (var i = 0; i < this.disciplines.length; i++) {
             var tmp = this.disciplines[i];
             if (tmp.teacherId == teacher.id) {

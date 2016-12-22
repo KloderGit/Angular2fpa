@@ -33,10 +33,16 @@ export class SheduleComponent implements OnInit, AfterViewInit{
     }
 
     ngAfterViewInit() {
+        this.selectedTeacher = this.teachers[0];
+        this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
     }
 
     isActive(item: Discipline){
         return item == this.selectedDiscipline;
+    }
+
+    teacherSelect(teacher: Teacher){
+        return teacher == this.selectedTeacher;
     }
 
     changeTeacher(teacher: Teacher){

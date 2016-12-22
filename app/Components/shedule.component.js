@@ -24,9 +24,14 @@ var SheduleComponent = (function () {
         this.disciplines = discipline_mock_model_1.discipline;
     };
     SheduleComponent.prototype.ngAfterViewInit = function () {
+        this.selectedTeacher = this.teachers[0];
+        this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
     };
     SheduleComponent.prototype.isActive = function (item) {
         return item == this.selectedDiscipline;
+    };
+    SheduleComponent.prototype.teacherSelect = function (teacher) {
+        return teacher == this.selectedTeacher;
     };
     SheduleComponent.prototype.changeTeacher = function (teacher) {
         this.selectedTeacher = teacher;

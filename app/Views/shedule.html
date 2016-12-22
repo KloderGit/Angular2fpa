@@ -1,6 +1,6 @@
 <div id="teacher_list">
-    <div *ngFor="let teacher of teachers; let tchrIndx = index">
-        <input name="tchr" type="radio" (change)="changeTeacher(teacher)" class="teacher_item">
+    <div *ngFor="let teacher of teachers; let tchrIndx = index" title="{{teacher.name}}">
+        <input name="tchr" type="radio" (change)="changeTeacher(teacher)" class="teacher_item" [checked] = "teacher == selectedTeacher">
         <teacher [teacher]="teacher"></teacher>
     </div>
 </div>
@@ -10,7 +10,8 @@
         <div class="col-sm-12">
             <div class="col-xs-3">
                 <ul class="nav nav-tabs tabs-left" >
-                    <li *ngFor="let discipline of disciplines | discp: selectedTeacher" [class.active]="isActive(discipline)">
+                    <li *ngFor="let discipline of disciplines | discp: selectedTeacher" 
+                        [class.active]="discipline == selectedDiscipline">
                         <a href="#{{discipline.id}}" data-toggle="tab" (click)="changeDiscipline(discipline);">{{discipline.title}}</a>
                     </li>
                 </ul>

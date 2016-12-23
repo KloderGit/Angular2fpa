@@ -1,1 +1,1 @@
-{"version":3,"file":"teachers.mock.data.js","sourceRoot":"","sources":["teachers.mock.data.ts"],"names":[],"mappings":";AAAA,6BAAwB,0BAA0B,CAAC,CAAA;AAExC,gBAAQ,GAAc;IAC7B,IAAI,sBAAO,CAAC,MAAM,EAAE,oBAAoB,CAAC;IACzC,IAAI,sBAAO,CAAC,MAAM,EAAE,oBAAoB,CAAC;CAC5C,CAAC"}
+{"version":3,"file":"teachers.mock.data.js","sourceRoot":"","sources":["teachers.mock.data.ts"],"names":[],"mappings":";AAAA,6BAAwB,0BAA0B,CAAC,CAAA;AAExC,oBAAY,GAAc;IACjC,IAAI,sBAAO,CAAC,MAAM,EAAE,oBAAoB,CAAC;IACzC,IAAI,sBAAO,CAAC,MAAM,EAAE,oBAAoB,CAAC;CAC5C,CAAC"}

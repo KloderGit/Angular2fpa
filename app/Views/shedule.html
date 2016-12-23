@@ -1,3 +1,5 @@
+<button (click)="teacherSelect()"> dfsdf </button>
+
 <div id="teacher_list">
     <div *ngFor="let teacher of teachers; let tchrIndx = index" title="{{teacher.name}}">
         <input name="tchr" type="radio" (change)="changeTeacher(teacher)" class="teacher_item" [checked] = "teacher == selectedTeacher">

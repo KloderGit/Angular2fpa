@@ -4,7 +4,7 @@ import { Discipline } from './../Models/discipline.model';
 import { events } from './../Data/events.mock.data';
 import { Event } from './../Models/event.model';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { teachers } from './../Data/teachers.mock.data';
+import { teachersData } from './../Data/teachers.mock.data';
 
 @Component({
     selector: 'shedule',
@@ -18,6 +18,7 @@ export class SheduleComponent implements OnInit, AfterViewInit{
     disciplines: Discipline[];
 
     selectedTeacher: Teacher;
+
     selectedDiscipline: Discipline;
 
     constructor(){
@@ -28,13 +29,24 @@ export class SheduleComponent implements OnInit, AfterViewInit{
 
     ngOnInit(){
         this.events = events;
-        this.teachers = teachers;
+        this.teachers = teachersData;
         this.disciplines = discipline;
     }
 
     ngAfterViewInit() {
+        // setTimeout(this.teacherSelect, 0);
+        // this.selectedTeacher = teachersData[0];
+    }
+
+    teacherSelect(){
+        // while(this.teachers == undefined){
+        //     console.log("Преподов пока нет");
+        // }
+
         this.selectedTeacher = this.teachers[0];
         this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
+
+        console.log(this.teachers);
     }
 
     changeTeacher(teacher: Teacher){
@@ -53,5 +65,9 @@ export class SheduleComponent implements OnInit, AfterViewInit{
                 return this.disciplines[i];
             }
         }
+    }
+
+    applyChanges(work: ()=>void) {
+        setTimeout(work, 2000);
     }
 }

@@ -20,12 +20,20 @@ var SheduleComponent = (function () {
     }
     SheduleComponent.prototype.ngOnInit = function () {
         this.events = events_mock_data_1.events;
-        this.teachers = teachers_mock_data_1.teachers;
+        this.teachers = teachers_mock_data_1.teachersData;
         this.disciplines = discipline_mock_model_1.discipline;
     };
     SheduleComponent.prototype.ngAfterViewInit = function () {
+        // setTimeout(this.teacherSelect, 0);
+        // this.selectedTeacher = teachersData[0];
+    };
+    SheduleComponent.prototype.teacherSelect = function () {
+        // while(this.teachers == undefined){
+        //     console.log("Преподов пока нет");
+        // }
         this.selectedTeacher = this.teachers[0];
         this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
+        console.log(this.teachers);
     };
     SheduleComponent.prototype.changeTeacher = function (teacher) {
         this.selectedTeacher = teacher;
@@ -41,6 +49,9 @@ var SheduleComponent = (function () {
                 return this.disciplines[i];
             }
         }
+    };
+    SheduleComponent.prototype.applyChanges = function (work) {
+        setTimeout(work, 2000);
     };
     SheduleComponent = __decorate([
         core_1.Component({

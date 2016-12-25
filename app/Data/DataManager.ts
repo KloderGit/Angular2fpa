@@ -49,6 +49,26 @@ export class DataManager{
     }
 
     addTeacher(teacher: Teacher){
-        this.service.addTeacher(teacher);
+
+        let addTeacherQuery = new Promise((resolve, reject) => {
+            if (this.service.addTeacher(teacher)){
+                resolve();
+            } else {
+                reject();
+            }            
+        });
+
+        return addTeacherQuery.then( () => 
+            {
+                this.teachers.then( teachers => teachers.push(teacher) ); 
+                console.log("Преподаватель успешно добавлен в DataManager");
+                return true;
+            },
+            () => 
+            {
+                console.log("Преподаватель не добавлен. Сервис вернул ошибку");
+                return false;
+            }
+            );
     }
 }

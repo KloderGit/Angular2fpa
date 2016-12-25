@@ -20,7 +20,8 @@ export class MockDataServices{
         return events;
     }
 
-    addTeacher(teacher: Teacher){
-        teachersData.push(teacher);
+    addTeacher(teacher: Teacher): boolean{
+        // teachersData.push(teacher);
+        return true;
     }
 }

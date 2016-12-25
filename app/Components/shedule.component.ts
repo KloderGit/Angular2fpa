@@ -26,7 +26,7 @@ export class SheduleComponent implements OnInit {
         this.dataManager.getTeachers()
             .then(data => {
                 this.teachers = data;
-                this.selectedTeacher = this.teachers[0];
+                // this.selectedTeacher = this.teachers[0];
         });
 
         this.dataManager.getDiscipline()
@@ -42,7 +42,17 @@ export class SheduleComponent implements OnInit {
     }
 
     addTeacher() {
-        // this.teachers.push( new Teacher("tch4","Макарова"));
+        this.dataManager.addTeacher(new Teacher("tch4","Макарова"))
+            .then( res => 
+            {
+                if ( res == true ){
+                    console.log("Успешно");
+                } else {
+                    console.log("Провал");
+                }
+            }
+
+        );
     }
 
     teacherSelect() {
@@ -60,6 +70,7 @@ export class SheduleComponent implements OnInit {
     }
 
     findDiscipline(teacher: Teacher) {
+        if (teacher == null) { return; }
         for (let i = 0; i < this.disciplines.length; i++) {
             let tmp = this.disciplines[i];
             if (tmp.teacherId == teacher.id) {

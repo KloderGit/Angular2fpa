@@ -16,7 +16,8 @@ var MockDataServices = (function () {
         return events_mock_data_1.events;
     };
     MockDataServices.prototype.addTeacher = function (teacher) {
-        teachers_mock_data_1.teachersData.push(teacher);
+        // teachersData.push(teacher);
+        return true;
     };
     return MockDataServices;
 }());

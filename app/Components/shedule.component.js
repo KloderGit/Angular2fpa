@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var DataManager_1 = require('./../Data/DataManager');
+var teacher_mode_1 = require('./../Models/teacher.mode');
 var core_1 = require('@angular/core');
 var SheduleComponent = (function () {
     function SheduleComponent(dataManager) {
@@ -19,7 +20,7 @@ var SheduleComponent = (function () {
         this.dataManager.getTeachers()
             .then(function (data) {
             _this.teachers = data;
-            _this.selectedTeacher = _this.teachers[0];
+            // this.selectedTeacher = this.teachers[0];
         });
         this.dataManager.getDiscipline()
             .then(function (data) {
@@ -32,7 +33,15 @@ var SheduleComponent = (function () {
         });
     };
     SheduleComponent.prototype.addTeacher = function () {
-        // this.teachers.push( new Teacher("tch4","Макарова"));
+        this.dataManager.addTeacher(new teacher_mode_1.Teacher("tch4", "Макарова"))
+            .then(function (res) {
+            if (res == true) {
+                console.log("Успешно");
+            }
+            else {
+                console.log("Провал");
+            }
+        });
     };
     SheduleComponent.prototype.teacherSelect = function () {
         this.selectedTeacher = this.teachers[0];
@@ -46,6 +55,9 @@ var SheduleComponent = (function () {
         this.selectedDiscipline = discipline;
     };
     SheduleComponent.prototype.findDiscipline = function (teacher) {
+        if (teacher == null) {
+            return;
+        }
         for (var i = 0; i < this.disciplines.length; i++) {
             var tmp = this.disciplines[i];
             if (tmp.teacherId == teacher.id) {

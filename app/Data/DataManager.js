@@ -39,7 +39,23 @@ var DataManager = (function () {
         return this.events;
     };
     DataManager.prototype.addTeacher = function (teacher) {
-        this.service.addTeacher(teacher);
+        var _this = this;
+        var addTeacherQuery = new Promise(function (resolve, reject) {
+            if (_this.service.addTeacher(teacher)) {
+                resolve();
+            }
+            else {
+                reject();
+            }
+        });
+        return addTeacherQuery.then(function () {
+            _this.teachers.then(function (teachers) { return teachers.push(teacher); });
+            console.log("Преподаватель успешно добавлен в DataManager");
+            return true;
+        }, function () {
+            console.log("Преподаватель не добавлен. Сервис вернул ошибку");
+            return false;
+        });
     };
     DataManager = __decorate([
         core_1.Injectable(), 

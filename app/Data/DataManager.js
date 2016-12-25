@@ -12,11 +12,31 @@ var core_1 = require('@angular/core');
 var MockDataService_1 = require('./../Services/MockDataService');
 var DataManager = (function () {
     function DataManager() {
+        console.log("Создание DataManager");
         this.service = new MockDataService_1.MockDataServices();
+        this.Init();
     }
-    DataManager.prototype.ngOnInit = function () { };
+    DataManager.prototype.Init = function () {
+        var _this = this;
+        console.log("Инициализация DataManager");
+        this.teachers = new Promise(function (resolve, reject) {
+            resolve(_this.service.getTeachers());
+        });
+        this.discipline = new Promise(function (resolve, reject) {
+            resolve(_this.service.getDiscipline());
+        });
+        this.events = new Promise(function (resolve, reject) {
+            resolve(_this.service.getEvents());
+        });
+    };
     DataManager.prototype.getTeachers = function () {
-        return Promise.resolve(this.service.getTeachers());
+        return this.teachers;
+    };
+    DataManager.prototype.getDiscipline = function () {
+        return this.discipline;
+    };
+    DataManager.prototype.getEvents = function () {
+        return this.events;
     };
     DataManager.prototype.addTeacher = function (teacher) {
         this.service.addTeacher(teacher);

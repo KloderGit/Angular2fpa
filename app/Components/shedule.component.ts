@@ -4,7 +4,7 @@ import { Teacher } from './../Models/teacher.mode';
 import { Discipline } from './../Models/discipline.model';
 import { events } from './../Data/events.mock.data';
 import { Event } from './../Models/event.model';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'shedule',
@@ -12,63 +12,63 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
     templateUrl: 'app/Views/shedule.html'
 })
 
-export class SheduleComponent implements OnInit, AfterViewInit{
-    events: Event[] = [];
+export class SheduleComponent implements OnInit {
+    events: Event[];
     teachers: Teacher[];
-    disciplines: Discipline[] = [];
+    disciplines: Discipline[];
 
     selectedTeacher: Teacher;
-
     selectedDiscipline: Discipline;
 
-    constructor(private dataManager: DataManager){}
+    constructor(private dataManager: DataManager) {}
 
-    ngOnInit(){
-        this.events = events;
-        this.dataManager.getTeachers().then( data => 
-                            { 
-                                this.teachers = data;
-                                this.selectedTeacher = this.teachers[0]; 
-                                this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
-                            } );
+    ngOnInit() {
+        this.dataManager.getTeachers()
+            .then(data => {
+                this.teachers = data;
+                this.selectedTeacher = this.teachers[0];
+        });
 
-        this.disciplines = discipline;
+        this.dataManager.getDiscipline()
+            .then(data => {
+                this.disciplines = data;
+                this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
+        });
+
+        this.dataManager.getEvents()
+            .then(data => {
+                this.events = data;
+        });
     }
 
-    ngAfterViewInit() {
-        // setTimeout(this.teacherSelect, 0);
-        // this.selectedTeacher = teachersData[0];
-                
+    addTeacher() {
+        // this.teachers.push( new Teacher("tch4","Макарова"));
     }
 
-    addTeacher(){
-        this.teachers.push( new Teacher("tch4","Макарова"));
-    }
-
-    teacherSelect(){
+    teacherSelect() {
         this.selectedTeacher = this.teachers[0];
         this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
     }
 
-    changeTeacher(teacher: Teacher){
+    changeTeacher(teacher: Teacher) {
         this.selectedTeacher = teacher;
         this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
     }
 
-    changeDiscipline(discipline: Discipline){
+    changeDiscipline(discipline: Discipline) {
         this.selectedDiscipline = discipline;
     }
 
-    findDiscipline(teacher: Teacher){
-        for( let i=0; i<this.disciplines.length; i++){
+    findDiscipline(teacher: Teacher) {
+        for (let i = 0; i < this.disciplines.length; i++) {
             let tmp = this.disciplines[i];
-            if ( tmp.teacherId == teacher.id ){
+            if (tmp.teacherId == teacher.id) {
                 return this.disciplines[i];
             }
         }
     }
 
-    applyChanges(work: ()=>void) {
+    applyChanges(work: () => void) {
         setTimeout(work, 2000);
     }
 }

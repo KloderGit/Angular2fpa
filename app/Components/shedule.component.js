@@ -9,32 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var DataManager_1 = require('./../Data/DataManager');
-var discipline_mock_model_1 = require('./../Data/discipline.mock.model');
-var teacher_mode_1 = require('./../Models/teacher.mode');
-var events_mock_data_1 = require('./../Data/events.mock.data');
 var core_1 = require('@angular/core');
 var SheduleComponent = (function () {
     function SheduleComponent(dataManager) {
         this.dataManager = dataManager;
-        this.events = [];
-        this.disciplines = [];
     }
     SheduleComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.events = events_mock_data_1.events;
-        this.dataManager.getTeachers().then(function (data) {
+        this.dataManager.getTeachers()
+            .then(function (data) {
             _this.teachers = data;
             _this.selectedTeacher = _this.teachers[0];
+        });
+        this.dataManager.getDiscipline()
+            .then(function (data) {
+            _this.disciplines = data;
             _this.selectedDiscipline = _this.findDiscipline(_this.selectedTeacher);
         });
-        this.disciplines = discipline_mock_model_1.discipline;
-    };
-    SheduleComponent.prototype.ngAfterViewInit = function () {
-        // setTimeout(this.teacherSelect, 0);
-        // this.selectedTeacher = teachersData[0];
+        this.dataManager.getEvents()
+            .then(function (data) {
+            _this.events = data;
+        });
     };
     SheduleComponent.prototype.addTeacher = function () {
-        this.teachers.push(new teacher_mode_1.Teacher("tch4", "Макарова"));
+        // this.teachers.push( new Teacher("tch4","Макарова"));
     };
     SheduleComponent.prototype.teacherSelect = function () {
         this.selectedTeacher = this.teachers[0];

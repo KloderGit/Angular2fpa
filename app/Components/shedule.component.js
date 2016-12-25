@@ -20,7 +20,7 @@ var SheduleComponent = (function () {
         this.dataManager.getTeachers()
             .then(function (data) {
             _this.teachers = data;
-            // this.selectedTeacher = this.teachers[0];
+            _this.selectedTeacher = _this.teachers[0];
         });
         this.dataManager.getDiscipline()
             .then(function (data) {

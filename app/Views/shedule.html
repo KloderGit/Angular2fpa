@@ -3,7 +3,7 @@
 <button (click)="addTeacher()"> ddddddddddddddddddddd </button>
 
 <div *ngIf="teachers != undefined" id="teacher_list">
-    <div *ngFor="let teacher of teachers ; let tchrIndx = index" title="{{teacher.name}}">
+    <div *ngFor="let teacher of teachers; let tchrIndx = index" title="{{teacher.name}}">
         <input name="tchr" type="radio" (change)="changeTeacher(teacher)" class="teacher_item" [checked] = "teacher == selectedTeacher">
         <teacher [teacher]="teacher"></teacher>
     </div>

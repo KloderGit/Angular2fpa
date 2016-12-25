@@ -26,7 +26,7 @@ export class SheduleComponent implements OnInit {
         this.dataManager.getTeachers()
             .then(data => {
                 this.teachers = data;
-                // this.selectedTeacher = this.teachers[0];
+                this.selectedTeacher = this.teachers[0];
         });
 
         this.dataManager.getDiscipline()

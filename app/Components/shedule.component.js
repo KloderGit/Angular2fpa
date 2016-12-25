@@ -8,32 +8,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var DataManager_1 = require('./../Data/DataManager');
 var discipline_mock_model_1 = require('./../Data/discipline.mock.model');
+var teacher_mode_1 = require('./../Models/teacher.mode');
 var events_mock_data_1 = require('./../Data/events.mock.data');
 var core_1 = require('@angular/core');
-var teachers_mock_data_1 = require('./../Data/teachers.mock.data');
 var SheduleComponent = (function () {
-    function SheduleComponent() {
+    function SheduleComponent(dataManager) {
+        this.dataManager = dataManager;
         this.events = [];
-        this.teachers = [];
         this.disciplines = [];
     }
     SheduleComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.events = events_mock_data_1.events;
-        this.teachers = teachers_mock_data_1.teachersData;
+        this.dataManager.getTeachers().then(function (data) {
+            _this.teachers = data;
+            _this.selectedTeacher = _this.teachers[0];
+            _this.selectedDiscipline = _this.findDiscipline(_this.selectedTeacher);
+        });
         this.disciplines = discipline_mock_model_1.discipline;
     };
     SheduleComponent.prototype.ngAfterViewInit = function () {
         // setTimeout(this.teacherSelect, 0);
         // this.selectedTeacher = teachersData[0];
     };
+    SheduleComponent.prototype.addTeacher = function () {
+        this.teachers.push(new teacher_mode_1.Teacher("tch4", "Макарова"));
+    };
     SheduleComponent.prototype.teacherSelect = function () {
-        // while(this.teachers == undefined){
-        //     console.log("Преподов пока нет");
-        // }
         this.selectedTeacher = this.teachers[0];
         this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
-        console.log(this.teachers);
     };
     SheduleComponent.prototype.changeTeacher = function (teacher) {
         this.selectedTeacher = teacher;
@@ -59,7 +64,7 @@ var SheduleComponent = (function () {
             styleUrls: ['app/Views/css/shedule.css'],
             templateUrl: 'app/Views/shedule.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [DataManager_1.DataManager])
     ], SheduleComponent);
     return SheduleComponent;
 }());

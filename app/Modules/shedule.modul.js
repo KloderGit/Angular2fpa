@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var DataManager_1 = require('./../Data/DataManager');
 var one_discipline_pipe_1 = require('./../Pipes/one-discipline.pipe');
 var disciplines_pipe_1 = require('./../Pipes/disciplines.pipe');
 var teachers_list_component_1 = require('./../Components/teachers-list.component');
@@ -31,7 +32,8 @@ var SheduleAppModule = (function () {
             declarations: [shedule_component_1.SheduleComponent, calendar_component_1.CalendarComponent, month_component_1.MonthComponent,
                 day_component_1.DayComponent, day_event_pipe_1.DayEventPipe, month_events_pipe_1.MonthEventsPipe, discipline_component_1.DisciplineComponent,
                 teachers_component_1.TeacherComponent, teachers_list_component_1.TeacherListComponent, disciplines_pipe_1.DisciplinePipe, one_discipline_pipe_1.OneDisciplinePipe],
-            bootstrap: [shedule_component_1.SheduleComponent]
+            bootstrap: [shedule_component_1.SheduleComponent],
+            providers: [DataManager_1.DataManager]
         }), 
         __metadata('design:paramtypes', [])
     ], SheduleAppModule);

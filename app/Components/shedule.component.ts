@@ -1,10 +1,10 @@
+import { DataManager } from './../Data/DataManager';
 import { discipline } from './../Data/discipline.mock.model';
 import { Teacher } from './../Models/teacher.mode';
 import { Discipline } from './../Models/discipline.model';
 import { events } from './../Data/events.mock.data';
 import { Event } from './../Models/event.model';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { teachersData } from './../Data/teachers.mock.data';
 
 @Component({
     selector: 'shedule',
@@ -13,40 +13,41 @@ import { teachersData } from './../Data/teachers.mock.data';
 })
 
 export class SheduleComponent implements OnInit, AfterViewInit{
-    events: Event[];
+    events: Event[] = [];
     teachers: Teacher[];
-    disciplines: Discipline[];
+    disciplines: Discipline[] = [];
 
     selectedTeacher: Teacher;
 
     selectedDiscipline: Discipline;
 
-    constructor(){
-        this.events = []; 
-        this.teachers = [];
-        this.disciplines = [];
-    }
+    constructor(private dataManager: DataManager){}
 
     ngOnInit(){
         this.events = events;
-        this.teachers = teachersData;
+        this.dataManager.getTeachers().then( data => 
+                            { 
+                                this.teachers = data;
+                                this.selectedTeacher = this.teachers[0]; 
+                                this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
+                            } );
+
         this.disciplines = discipline;
     }
 
     ngAfterViewInit() {
         // setTimeout(this.teacherSelect, 0);
         // this.selectedTeacher = teachersData[0];
+                
+    }
+
+    addTeacher(){
+        this.teachers.push( new Teacher("tch4","Макарова"));
     }
 
     teacherSelect(){
-        // while(this.teachers == undefined){
-        //     console.log("Преподов пока нет");
-        // }
-
         this.selectedTeacher = this.teachers[0];
         this.selectedDiscipline = this.findDiscipline(this.selectedTeacher);
-
-        console.log(this.teachers);
     }
 
     changeTeacher(teacher: Teacher){

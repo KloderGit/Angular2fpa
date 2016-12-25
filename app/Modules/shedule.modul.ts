@@ -1,3 +1,5 @@
+import { DataManager } from './../Data/DataManager';
+import { MockDataServices } from './../Services/MockDataService';
 import { OneDisciplinePipe } from './../Pipes/one-discipline.pipe';
 import { DisciplinePipe } from './../Pipes/disciplines.pipe';
 import { TeacherListComponent } from './../Components/teachers-list.component';
@@ -18,7 +20,8 @@ import { NgModule, Component } from '@angular/core';
     declarations: [ SheduleComponent, CalendarComponent, MonthComponent, 
                     DayComponent, DayEventPipe, MonthEventsPipe, DisciplineComponent,
                     TeacherComponent, TeacherListComponent, DisciplinePipe, OneDisciplinePipe ],
-    bootstrap: [ SheduleComponent ]
+    bootstrap: [ SheduleComponent ],
+    providers: [ DataManager ]
 })
 
 export class SheduleAppModule {}

@@ -57,6 +57,25 @@ var DataManager = (function () {
             return false;
         });
     };
+    DataManager.prototype.addEvent = function (event) {
+        var _this = this;
+        var addEventQuery = new Promise(function (resolve, reject) {
+            if (_this.service.addEvent(event)) {
+                resolve();
+            }
+            else {
+                reject();
+            }
+        });
+        return addEventQuery.then(function () {
+            _this.events.then(function (events) { return events.push(event); });
+            console.log("Ведомость успешно добавлена в DataManager");
+            return true;
+        }, function () {
+            console.log("Ведомость не добавлена. Сервис вернул ошибку");
+            return false;
+        });
+    };
     DataManager = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

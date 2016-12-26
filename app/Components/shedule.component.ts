@@ -79,7 +79,20 @@ export class SheduleComponent implements OnInit {
         }
     }
 
-    applyChanges(work: () => void) {
-        setTimeout(work, 2000);
+
+    selectTeacherAndDiscipline(idTeacher: string, idDiscipline: string){
+        this.selectedTeacher = this.findTeacherById(idTeacher);
+        this.selectedDiscipline = this.findDisciplineById(idDiscipline);
     }
+
+    findTeacherById(id:string){
+        let index = this.teachers.map(x => x.id).indexOf(id);
+        return this.teachers[index];
+    }
+
+    findDisciplineById(id:string){
+        let index = this.disciplines.map(x => x.id).indexOf(id);
+        return this.disciplines[index];
+    }
+
 }

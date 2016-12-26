@@ -13,9 +13,11 @@
 
 <tr *ngFor = "let week of grid.weeks">
     <td *ngFor = "let day of week.days">
-        <!--{{day.inmonth}}-->
-        {{day.date.getDate()}}
-        <day [event]="events | event:day.date"></day>
+        <div style="min-height: 50px; padding: 5px;" (dblclick)="addEvent(day)">
+            <!--{{day.inmonth}}-->
+            {{day.date.getDate()}}
+            <day [event]="events | event:day.date"></day>
+        </div>
     </td>
 </tr>
     <tfoot>

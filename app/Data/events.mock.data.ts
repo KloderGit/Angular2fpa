@@ -10,5 +10,6 @@ export let events: Event[] = [
     new Event("666", new Date(2015,3,15), "d2" ),
     new Event("777", new Date(2015,3,18), "d1" ),
     new Event("000", new Date(2015,2,30), "h1"),
+    new Event("103", new Date(2015,1,18), "d1" ),
     new Event("101", new Date(2010,1,18), "d1" )
 ];

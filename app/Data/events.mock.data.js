@@ -9,6 +9,7 @@ exports.events = [
     new event_model_1.Event("666", new Date(2015, 3, 15), "d2"),
     new event_model_1.Event("777", new Date(2015, 3, 18), "d1"),
     new event_model_1.Event("000", new Date(2015, 2, 30), "h1"),
+    new event_model_1.Event("103", new Date(2015, 1, 18), "d1"),
     new event_model_1.Event("101", new Date(2010, 1, 18), "d1")
 ];
 //# sourceMappingURL=events.mock.data.js.map

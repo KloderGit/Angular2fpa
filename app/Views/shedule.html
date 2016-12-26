@@ -1,6 +1,9 @@
 <button (click)="teacherSelect()"> dfsdf </button>
 
-<button (click)="addTeacher()"> ddddddddddddddddddddd </button>
+<button (click)="addEvent()"> ddddddddddddddddddddd </button>
+
+<button (click)="selectTeacherAndDiscipline('tch2', 'h2')"> ssssssssssssss </button>
+
 
 <div *ngIf="teachers != undefined" id="teacher_list">
     <div *ngFor="let teacher of teachers; let tchrIndx = index" title="{{teacher.name}}">

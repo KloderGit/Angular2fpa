@@ -16,7 +16,7 @@ var CalendarGrid = (function () {
         for (var weekNumber = 0; weekNumber < countTableRows; weekNumber++) {
             var currentWeek = new cWeek();
             for (var dayWeekNumber = 0; dayWeekNumber < 7; dayWeekNumber++) {
-                var currentDay = new Date();
+                var currentDay = new cDay();
                 if (cellIndex < offsetWeekDay || cellIndex > (this.countDays + offsetWeekDay - 1)) {
                     currentDay = new cDay();
                     currentDay.inmonth = false;

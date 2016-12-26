@@ -71,4 +71,28 @@ export class DataManager{
             }
             );
     }
+
+    addEvent(event: Event){
+        let addEventQuery = new Promise((resolve, reject) =>
+        {
+            if ( this.service.addEvent(event) ){
+                resolve();
+            } else {
+                reject();
+            }  
+        });
+
+        return addEventQuery.then( () => 
+            {
+                this.events.then( events => events.push(event) ); 
+                console.log("Ведомость успешно добавлена в DataManager");
+                return true;
+            },
+            () => 
+            {
+                console.log("Ведомость не добавлена. Сервис вернул ошибку");
+                return false;
+            }
+            );
+    }
 }

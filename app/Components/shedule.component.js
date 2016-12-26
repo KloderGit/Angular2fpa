@@ -65,8 +65,17 @@ var SheduleComponent = (function () {
             }
         }
     };
-    SheduleComponent.prototype.applyChanges = function (work) {
-        setTimeout(work, 2000);
+    SheduleComponent.prototype.selectTeacherAndDiscipline = function (idTeacher, idDiscipline) {
+        this.selectedTeacher = this.findTeacherById(idTeacher);
+        this.selectedDiscipline = this.findDisciplineById(idDiscipline);
+    };
+    SheduleComponent.prototype.findTeacherById = function (id) {
+        var index = this.teachers.map(function (x) { return x.id; }).indexOf(id);
+        return this.teachers[index];
+    };
+    SheduleComponent.prototype.findDisciplineById = function (id) {
+        var index = this.disciplines.map(function (x) { return x.id; }).indexOf(id);
+        return this.disciplines[index];
     };
     SheduleComponent = __decorate([
         core_1.Component({

@@ -4,7 +4,11 @@ import { Teacher } from './../Models/teacher.mode';
 import { Discipline } from './../Models/discipline.model';
 import { events } from './../Data/events.mock.data';
 import { Event } from './../Models/event.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
+
+declare var jQuery:any;
+import * as $ from 'jquery';
+
 
 @Component({
     selector: 'shedule',
@@ -20,7 +24,9 @@ export class SheduleComponent implements OnInit {
     selectedTeacher: Teacher;
     selectedDiscipline: Discipline;
 
-    constructor(private dataManager: DataManager) {}
+    constructor(private dataManager: DataManager) {
+        
+    }
 
     ngOnInit() {
         this.dataManager.getTeachers()
@@ -39,6 +45,7 @@ export class SheduleComponent implements OnInit {
             .then(data => {
                 this.events = data;
         });
+
     }
 
     addTeacher() {

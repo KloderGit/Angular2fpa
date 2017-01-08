@@ -4,10 +4,13 @@ import { Component, Input } from '@angular/core';
 @Component({
     selector: 'day',
     template: `
-        <p *ngIf = "event != null" >{{event.id}}</p>
-        <!--<p *ngIf = "event != null" >{{event.date.getDate()}}</p>-->
+        <div *ngIf = "event != null" >
+            <p *ngFor = "let evnt of event">
+                {{evnt.id}}
+            <p>
+        </div>
     `
 })
 export class DayComponent{
-    @Input() event: Event;
+    @Input() event: Event[];
 }

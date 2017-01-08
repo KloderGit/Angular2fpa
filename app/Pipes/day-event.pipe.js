@@ -13,13 +13,9 @@ var DayEventPipe = (function () {
     function DayEventPipe() {
     }
     DayEventPipe.prototype.transform = function (array, date) {
-        for (var i = 0; i < array.length; i++) {
-            var indexDate = array[i].date;
-            var findDate = date;
-            if (+indexDate == +findDate) {
-                return array[i];
-            }
-        }
+        return array.filter(function (item) {
+            return +item.date == +date;
+        });
     };
     DayEventPipe = __decorate([
         core_1.Pipe({

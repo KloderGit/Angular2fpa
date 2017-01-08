@@ -8,19 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var event_model_1 = require('./../Models/event.model');
 var core_1 = require('@angular/core');
 var DayComponent = (function () {
     function DayComponent() {
     }
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', event_model_1.Event)
+        __metadata('design:type', Array)
     ], DayComponent.prototype, "event", void 0);
     DayComponent = __decorate([
         core_1.Component({
             selector: 'day',
-            template: "\n        <p *ngIf = \"event != null\" >{{event.id}}</p>\n        <!--<p *ngIf = \"event != null\" >{{event.date.getDate()}}</p>-->\n    "
+            template: "\n        <div *ngIf = \"event != null\" >\n            <p *ngFor = \"let evnt of event\">\n                {{evnt.id}}\n            <p>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], DayComponent);

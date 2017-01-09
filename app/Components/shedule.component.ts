@@ -6,10 +6,6 @@ import { events } from './../Data/events.mock.data';
 import { Event } from './../Models/event.model';
 import { Component, OnInit, ElementRef } from '@angular/core';
 
-declare var jQuery:any;
-import * as $ from 'jquery';
-
-
 @Component({
     selector: 'shedule',
     styleUrls: ['app/Views/css/shedule.css'],
@@ -46,6 +42,10 @@ export class SheduleComponent implements OnInit {
                 this.events = data;
         });
 
+    }
+
+    rangeChange(event: any){
+        console.log(event);
     }
 
     addTeacher() {

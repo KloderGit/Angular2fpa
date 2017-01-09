@@ -8,6 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var testEmit_component_1 = require('./../Components/testEmit.component');
+var hours_list_component_1 = require('./../Components/hours-list.component');
+var addEvent_component_1 = require('./../Components/addEvent.component');
+var range_slider_component_1 = require('./../Components/range-slider.component');
 var DataManager_1 = require('./../Data/DataManager');
 var one_discipline_pipe_1 = require('./../Pipes/one-discipline.pipe');
 var disciplines_pipe_1 = require('./../Pipes/disciplines.pipe');
@@ -31,7 +35,7 @@ var SheduleAppModule = (function () {
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
             declarations: [shedule_component_1.SheduleComponent, calendar_component_1.CalendarComponent, month_component_1.MonthComponent,
                 day_component_1.DayComponent, day_event_pipe_1.DayEventPipe, month_events_pipe_1.MonthEventsPipe, discipline_component_1.DisciplineComponent,
-                teachers_component_1.TeacherComponent, teachers_list_component_1.TeacherListComponent, disciplines_pipe_1.DisciplinePipe, one_discipline_pipe_1.OneDisciplinePipe],
+                teachers_component_1.TeacherComponent, teachers_list_component_1.TeacherListComponent, disciplines_pipe_1.DisciplinePipe, one_discipline_pipe_1.OneDisciplinePipe, range_slider_component_1.RangeSlider, addEvent_component_1.AddEvent, hours_list_component_1.HoursList, testEmit_component_1.TestEmmit],
             bootstrap: [shedule_component_1.SheduleComponent],
             providers: [DataManager_1.DataManager]
         }), 

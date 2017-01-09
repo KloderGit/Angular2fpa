@@ -32,6 +32,9 @@ var SheduleComponent = (function () {
             _this.events = data;
         });
     };
+    SheduleComponent.prototype.rangeChange = function (event) {
+        console.log(event);
+    };
     SheduleComponent.prototype.addTeacher = function () {
         this.dataManager.addTeacher(new teacher_mode_1.Teacher("tch4", "Макарова"))
             .then(function (res) {

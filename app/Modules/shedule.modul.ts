@@ -1,3 +1,7 @@
+import { TestEmmit } from './../Components/testEmit.component';
+import { HoursList } from './../Components/hours-list.component';
+import { AddEvent } from './../Components/addEvent.component';
+import { RangeSlider } from './../Components/range-slider.component';
 import { DataManager } from './../Data/DataManager';
 import { MockDataServices } from './../Services/MockDataService';
 import { OneDisciplinePipe } from './../Pipes/one-discipline.pipe';
@@ -19,7 +23,7 @@ import { NgModule, Component } from '@angular/core';
     imports: [ BrowserModule, FormsModule ],
     declarations: [ SheduleComponent, CalendarComponent, MonthComponent, 
                     DayComponent, DayEventPipe, MonthEventsPipe, DisciplineComponent,
-                    TeacherComponent, TeacherListComponent, DisciplinePipe, OneDisciplinePipe ],
+                    TeacherComponent, TeacherListComponent, DisciplinePipe, OneDisciplinePipe, RangeSlider, AddEvent, HoursList, TestEmmit ],
     bootstrap: [ SheduleComponent ],
     providers: [ DataManager ]
 })

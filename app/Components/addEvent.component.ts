@@ -8,8 +8,6 @@ import { Component } from '@angular/core';
         </div>
 
             <hour-list [range_min] = "min" [range_max] = "max"></hour-list>
-
-        <test (ccc) = "ChangeRange($event)"></test>
     `    
 })
 export class AddEvent{

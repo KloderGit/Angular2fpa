@@ -21,7 +21,7 @@ var AddEvent = (function () {
     AddEvent = __decorate([
         core_1.Component({
             selector: 'add-event',
-            template: "\n        <div>\n            <range-time (rangeChanged) = \"ChangeRange($event)\"></range-time>\n        </div>\n\n            <hour-list [range_min] = \"min\" [range_max] = \"max\"></hour-list>\n\n        <test (ccc) = \"ChangeRange($event)\"></test>\n    "
+            template: "\n        <div>\n            <range-time (rangeChanged) = \"ChangeRange($event)\"></range-time>\n        </div>\n\n            <hour-list [range_min] = \"min\" [range_max] = \"max\"></hour-list>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], AddEvent);

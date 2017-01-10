@@ -27,12 +27,16 @@ var RangeSlider = (function () {
             width: 600,
             showLabels: true,
             isRange: true,
-            snap: true
+            snap: true,
+            onstatechange: initChange()
         });
+        function initChange() {
+            handleChange(jQuery('.range-slider')[0].value);
+        }
         jQuery('.range-slider').on('change', function () {
-            hhh(this.value);
+            handleChange(this.value);
         });
-        function hhh(value) {
+        function handleChange(value) {
             var array = value.split(',');
             var res = [];
             res.push(parseInt(array[0]));

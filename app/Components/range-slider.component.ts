@@ -36,14 +36,19 @@ export class RangeSlider implements OnInit{
             width: 600,
             showLabels: true,
             isRange : true,
-            snap: true
+            snap: true,
+            onstatechange: initChange()
         });
+
+        function initChange(){
+            handleChange( jQuery('.range-slider')[0].value );
+        }
 
         jQuery('.range-slider').on('change', function(){
-            hhh(this.value);
+            handleChange(this.value);
         });
 
-        function hhh(value: string){
+        function handleChange(value: string){
             let array = value.split(',');
             let res: number[] = [];
             res.push(parseInt(array[0]));

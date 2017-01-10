@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AddEvent = (function () {
     function AddEvent() {
-        this.min = 10;
-        this.max = 23;
+        // this.min = 10;
+        // this.max = 23;
     }
     AddEvent.prototype.ChangeRange = function (range) {
         this.min = range[0];
@@ -21,7 +21,7 @@ var AddEvent = (function () {
     AddEvent = __decorate([
         core_1.Component({
             selector: 'add-event',
-            template: "\n        <div>\n            <range-time (rangeChanged) = \"ChangeRange($event)\"></range-time>\n        </div>\n\n            <hour-list [range_min] = \"min\" [range_max] = \"max\"></hour-list>\n    "
+            template: "\n        <div style=\"margin: 0 0 30px 0\">\n            <range-time (rangeChanged) = \"ChangeRange($event)\"></range-time>\n        </div>\n\n        <div style=\"width:600px; margin: 0 auto\">\n        <hour-list [range_min] = \"min\" [range_max] = \"max\"></hour-list>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], AddEvent);

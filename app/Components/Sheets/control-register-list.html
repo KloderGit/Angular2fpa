@@ -1,0 +1,9 @@
+<div>
+    <h3>Список ведомостей на: {{dayDate}}</h3>
+</div>
+
+<div id="control_list-list" *ngIf="sheets != undefined"> 
+    <div *ngFor="let sheet of sheets">
+        <p>{{sheet.id}}</p>
+    </div>
+</div>

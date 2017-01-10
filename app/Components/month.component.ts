@@ -1,6 +1,7 @@
+import { Router } from '@angular/router';
 import { DataManager } from './../Data/DataManager';
 import { CalendarGrid } from './../Models/calendar.mode';
-import { Event } from './../Models/event.model';
+import { ControlRegister } from './../Models/control-register.model';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -10,12 +11,12 @@ import { Component, Input, OnInit } from '@angular/core';
     templateUrl: './../Views/month.html' 
 })
 export class MonthComponent implements OnInit{
-    @Input() events: Event[];
+    @Input() events: ControlRegister[];
 
     grid: CalendarGrid;
     disciplineId: string;
 
-    constructor(private dataManager: DataManager){}
+    constructor(private dataManager: DataManager, private router: Router){}
 
     ngOnInit(){
         this.grid = new CalendarGrid( this.events[0].date ); 
@@ -27,7 +28,7 @@ export class MonthComponent implements OnInit{
     }   
 
     addEvent(day){
-        this.dataManager.addEvent( new Event(this.guid(), day.date, this.disciplineId ) )
+        this.dataManager.addEvent( new ControlRegister(this.guid(), day.date, this.disciplineId ) )
             .then( res => 
             {
                 if ( res == true ){
@@ -38,6 +39,10 @@ export class MonthComponent implements OnInit{
             }
 
         );
+    }
+
+    selectDay(day){
+        this.router.navigate(['/register-list', + day.date ]);
     }
 
     guid() {

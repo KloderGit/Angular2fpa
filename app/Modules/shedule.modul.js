@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var control_register_list_component_1 = require('./../Components/Sheets/control-register-list.component');
 var app_component_1 = require('./../Components/app.component');
 var hours_list_component_1 = require('./../Components/hours-list.component');
 var addEvent_component_1 = require('./../Components/addEvent.component');
@@ -30,7 +31,8 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var routerMaps = router_1.RouterModule.forRoot([
     { path: 'calendar', component: shedule_component_1.SheduleComponent },
-    { path: 'addEvent', component: addEvent_component_1.AddEvent },
+    { path: 'addEvent/:data', component: addEvent_component_1.AddEvent },
+    { path: 'register-list/:data', component: control_register_list_component_1.ControlRegisterList },
     { path: '', component: shedule_component_1.SheduleComponent },
     { path: '**', component: shedule_component_1.SheduleComponent }
 ]);
@@ -40,7 +42,7 @@ var SheduleAppModule = (function () {
     SheduleAppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, routerMaps],
-            declarations: [app_component_1.AppComponent, shedule_component_1.SheduleComponent, calendar_component_1.CalendarComponent, month_component_1.MonthComponent,
+            declarations: [app_component_1.AppComponent, shedule_component_1.SheduleComponent, calendar_component_1.CalendarComponent, month_component_1.MonthComponent, control_register_list_component_1.ControlRegisterList,
                 day_component_1.DayComponent, day_event_pipe_1.DayEventPipe, month_events_pipe_1.MonthEventsPipe, discipline_component_1.DisciplineComponent,
                 teachers_component_1.TeacherComponent, teachers_list_component_1.TeacherListComponent, disciplines_pipe_1.DisciplinePipe, one_discipline_pipe_1.OneDisciplinePipe, range_slider_component_1.RangeSlider, addEvent_component_1.AddEvent, hours_list_component_1.HoursList],
             bootstrap: [app_component_1.AppComponent],

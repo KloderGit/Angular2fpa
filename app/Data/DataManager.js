@@ -38,6 +38,11 @@ var DataManager = (function () {
     DataManager.prototype.getEvents = function () {
         return this.events;
     };
+    DataManager.prototype.getEventsByDate = function (date) {
+        return this.events.then(function (eve) {
+            return eve.filter(function (e) { return +e.date == +date; });
+        });
+    };
     DataManager.prototype.addTeacher = function (teacher) {
         var _this = this;
         var addTeacherQuery = new Promise(function (resolve, reject) {

@@ -8,16 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var router_1 = require('@angular/router');
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(router) {
+        this.router = router;
+        this.ddd = +(new Date(2015, 3, 18));
     }
+    AppComponent.prototype.dddd = function () {
+        this.router.navigate(['/addEvent', +(new Date(2015, 3, 18))]);
+    };
     AppComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'application',
-            template: "\n        <a routerLink=\"/calendar\" >Calendar</a>\n        <a routerLink=\"/addEvent\" >Add</a>\n\n        <br/><br/><br/>\n        <router-outlet></router-outlet>\n    "
+            templateUrl: 'app.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], AppComponent);
     return AppComponent;
 }());

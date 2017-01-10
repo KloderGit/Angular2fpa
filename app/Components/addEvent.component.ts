@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'add-event',
@@ -12,17 +13,24 @@ import { Component } from '@angular/core';
         </div>
     `    
 })
-export class AddEvent{
+export class AddEvent implements OnInit{
+
+    dayDate: Date = new Date();
 
     min: number;
     max: number;
 
-    constructor(){
+    constructor( private route: ActivatedRoute,
+                 private router: Router ){
         // this.min = 10;
         // this.max = 23;
     }
 
-    ChangeRange(range: number[]){
+    ngOnInit(){
+        this.dayDate.setTime( this.route.snapshot.params['data'] );
+    }
+
+    ChangeRange( range: number[] ){
         this.min = range[0];
         this.max = range[1];
     }

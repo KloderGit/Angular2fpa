@@ -1,4 +1,4 @@
-import { Event } from './../Models/event.model';
+import { ControlRegister } from './../Models/control-register.model';
 
 import { Pipe, PipeTransform } from '@angular/core';
  
@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     pure: false
 })
 export class DayEventPipe implements PipeTransform {
-  transform(array: Event[], date: Date) {
+  transform(array: ControlRegister[], date: Date) {
     return array.filter( function(item){
       return +item.date == +date;
     });

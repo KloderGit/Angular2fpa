@@ -1,13 +1,20 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
+    moduleId: module.id,
     selector: 'application',
-    template: `
-        <a routerLink="/calendar" >Calendar</a>
-        <a routerLink="/addEvent" >Add</a>
-
-        <br/><br/><br/>
-        <router-outlet></router-outlet>
-    `
+    templateUrl: 'app.html'
 })
-export class AppComponent{}
+export class AppComponent{
+
+    constructor(private router: Router){
+        
+    }
+
+    ddd:number = +(new Date(2015,3,18));
+
+    dddd(){
+        this.router.navigate(['/addEvent', +(new Date(2015,3,18)) ]);
+    }
+}

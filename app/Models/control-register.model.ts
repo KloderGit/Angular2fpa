@@ -1,6 +1,6 @@
 import { Discipline } from './discipline.model';
 
-export class Event{
+export class ControlRegister{
 
     id: string;
     date: Date;

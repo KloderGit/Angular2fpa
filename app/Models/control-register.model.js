@@ -8,4 +8,4 @@ var ControlRegister = (function () {
     return ControlRegister;
 }());
 exports.ControlRegister = ControlRegister;
-//# sourceMappingURL=event.model.js.map
+//# sourceMappingURL=control-register.model.js.map

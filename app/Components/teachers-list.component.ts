@@ -1,4 +1,4 @@
-import { Event } from './../Models/event.model';
+import { ControlRegister } from './../Models/control-register.model';
 import { teachers } from './../Data/teachers.mock.data';
 import { Component, Input } from '@angular/core';
 import { Teacher } from './../Models/teacher.mode';

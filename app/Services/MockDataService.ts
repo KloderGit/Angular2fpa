@@ -1,4 +1,4 @@
-import { Event } from './../Models/event.model';
+import { ControlRegister } from './../Models/control-register.model';
 import { events } from './../Data/events.mock.data';
 import { discipline } from './../Data/discipline.mock.model';
 import { Teacher } from './../Models/teacher.mode';
@@ -26,7 +26,7 @@ export class MockDataServices{
         return true;
     }
 
-    addEvent(event: Event): boolean{
+    addEvent(event: ControlRegister): boolean{
         return true;
     }
 }

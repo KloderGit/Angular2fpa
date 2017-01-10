@@ -1,6 +1,6 @@
 import {
-    Event
-} from './../Models/event.model';
+    ControlRegister
+} from './../Models/control-register.model';
 import {
     Pipe,
     PipeTransform
@@ -11,7 +11,7 @@ import {
     pure: false
 })
 export class MonthEventsPipe implements PipeTransform {
-    transform(array: Event[]) {
+    transform(array: ControlRegister[]) {
         let monthArray: any[] = [];
         let result = [];
 

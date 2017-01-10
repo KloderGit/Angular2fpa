@@ -1,5 +1,5 @@
 import { Discipline } from './../Models/discipline.model';
-import { Event } from './../Models/event.model';
+import { ControlRegister } from './../Models/control-register.model';
 
 import { Pipe, PipeTransform } from '@angular/core';
  
@@ -8,7 +8,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     pure: false
 })
 export class OneDisciplinePipe implements PipeTransform {
-  transform(array: Event[], discipline: Discipline) {
+  transform(array: ControlRegister[], discipline: Discipline) {
     return array.filter( function(item){
       return item.disciplineId == discipline.id;
     });

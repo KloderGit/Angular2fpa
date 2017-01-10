@@ -1,4 +1,4 @@
-import { Event } from './../Models/event.model';
+import { ControlRegister } from './../Models/control-register.model';
 import { Discipline } from './../Models/discipline.model';
 import { Teacher } from './../Models/teacher.mode';
 import { Injectable, OnInit } from '@angular/core';
@@ -9,7 +9,7 @@ export class DataManager{
 
     public teachers: Promise<Teacher[]>; 
     public discipline: Promise<Discipline[]>;
-    public events: Promise<Event[]>;
+    public events: Promise<ControlRegister[]>;
 
     private service: MockDataServices;
 
@@ -48,6 +48,16 @@ export class DataManager{
         return this.events;
     }
 
+    getEventsByDate(date: Date){
+        return this.events.then(
+            (eve) => {   
+                return eve.filter(
+                    (e) => { return +e.date == +date; }
+                );
+            }
+        );
+    }
+
     addTeacher(teacher: Teacher){
 
         let addTeacherQuery = new Promise((resolve, reject) => {
@@ -72,7 +82,7 @@ export class DataManager{
             );
     }
 
-    addEvent(event: Event){
+    addEvent(event: ControlRegister){
         let addEventQuery = new Promise((resolve, reject) =>
         {
             if ( this.service.addEvent(event) ){

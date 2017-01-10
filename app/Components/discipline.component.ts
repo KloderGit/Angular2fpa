@@ -2,7 +2,7 @@ import { Discipline } from './../Models/discipline.model';
 import { Component, Input } from '@angular/core';
 
 import { events } from './../Data/events.mock.data';
-import { Event } from './../Models/event.model';
+import { ControlRegister } from './../Models/control-register.model';
 
 @Component({
     selector: 'discipline',
@@ -13,6 +13,6 @@ import { Event } from './../Models/event.model';
     `
 })
 export class DisciplineComponent{
-    @Input() events: Event[];
+    @Input() events: ControlRegister[];
     @Input() discipline: Discipline;
 }

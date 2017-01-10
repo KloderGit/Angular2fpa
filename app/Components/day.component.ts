@@ -1,4 +1,4 @@
-import { Event } from './../Models/event.model';
+import { ControlRegister } from './../Models/control-register.model';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -12,5 +12,5 @@ import { Component, Input } from '@angular/core';
     `
 })
 export class DayComponent{
-    @Input() event: Event[];
+    @Input() event: ControlRegister[];
 }

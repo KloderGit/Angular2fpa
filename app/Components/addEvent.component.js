@@ -8,12 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var router_1 = require('@angular/router');
 var core_1 = require('@angular/core');
 var AddEvent = (function () {
-    function AddEvent() {
+    function AddEvent(route, router) {
+        this.route = route;
+        this.router = router;
+        this.dayDate = new Date();
         // this.min = 10;
         // this.max = 23;
     }
+    AddEvent.prototype.ngOnInit = function () {
+        this.dayDate.setTime(this.route.snapshot.params['data']);
+    };
     AddEvent.prototype.ChangeRange = function (range) {
         this.min = range[0];
         this.max = range[1];
@@ -23,7 +30,7 @@ var AddEvent = (function () {
             selector: 'add-event',
             template: "\n        <div style=\"margin: 0 0 30px 0\">\n            <range-time (rangeChanged) = \"ChangeRange($event)\"></range-time>\n        </div>\n\n        <div style=\"width:600px; margin: 0 auto\">\n        <hour-list [range_min] = \"min\" [range_max] = \"max\"></hour-list>\n        </div>\n    "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
     ], AddEvent);
     return AddEvent;
 }());

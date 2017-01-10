@@ -8,13 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var router_1 = require('@angular/router');
 var DataManager_1 = require('./../Data/DataManager');
 var calendar_mode_1 = require('./../Models/calendar.mode');
-var event_model_1 = require('./../Models/event.model');
+var control_register_model_1 = require('./../Models/control-register.model');
 var core_1 = require('@angular/core');
 var MonthComponent = (function () {
-    function MonthComponent(dataManager) {
+    function MonthComponent(dataManager, router) {
         this.dataManager = dataManager;
+        this.router = router;
     }
     MonthComponent.prototype.ngOnInit = function () {
         this.grid = new calendar_mode_1.CalendarGrid(this.events[0].date);
@@ -24,7 +26,7 @@ var MonthComponent = (function () {
         return this.events[0].date.toLocaleString("ru-ru", { month: "long" }) + " " + this.events[0].date.getFullYear();
     };
     MonthComponent.prototype.addEvent = function (day) {
-        this.dataManager.addEvent(new event_model_1.Event(this.guid(), day.date, this.disciplineId))
+        this.dataManager.addEvent(new control_register_model_1.ControlRegister(this.guid(), day.date, this.disciplineId))
             .then(function (res) {
             if (res == true) {
                 console.log("Успешно");
@@ -33,6 +35,9 @@ var MonthComponent = (function () {
                 console.log("Провал");
             }
         });
+    };
+    MonthComponent.prototype.selectDay = function (day) {
+        this.router.navigate(['/register-list', +day.date]);
     };
     MonthComponent.prototype.guid = function () {
         return this._p8() + this._p8(true) + this._p8(true) + this._p8();
@@ -52,7 +57,7 @@ var MonthComponent = (function () {
             styleUrls: ['./../Views/css/month.css'],
             templateUrl: './../Views/month.html'
         }), 
-        __metadata('design:paramtypes', [DataManager_1.DataManager])
+        __metadata('design:paramtypes', [DataManager_1.DataManager, router_1.Router])
     ], MonthComponent);
     return MonthComponent;
 }());

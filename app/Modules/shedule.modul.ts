@@ -1,3 +1,4 @@
+import { ControlRegisterList } from './../Components/Sheets/control-register-list.component';
 import { AppComponent } from './../Components/app.component';
 import { HoursList } from './../Components/hours-list.component';
 import { AddEvent } from './../Components/addEvent.component';
@@ -23,14 +24,15 @@ import { RouterModule } from '@angular/router';
 
 var routerMaps = RouterModule.forRoot([
     { path: 'calendar', component: SheduleComponent },
-    { path: 'addEvent', component: AddEvent },
+    { path: 'addEvent/:data', component: AddEvent },
+    { path: 'register-list/:data', component: ControlRegisterList },
     { path: '', component: SheduleComponent },
     { path: '**', component: SheduleComponent }
 ]);
 
 @NgModule({
     imports: [ BrowserModule, FormsModule, routerMaps ],
-    declarations: [ AppComponent, SheduleComponent, CalendarComponent, MonthComponent, 
+    declarations: [ AppComponent, SheduleComponent, CalendarComponent, MonthComponent, ControlRegisterList,
                     DayComponent, DayEventPipe, MonthEventsPipe, DisciplineComponent,
                     TeacherComponent, TeacherListComponent, DisciplinePipe, OneDisciplinePipe, RangeSlider, AddEvent, HoursList ],
     bootstrap: [ AppComponent ],

@@ -1,4 +1,4 @@
-import { Event } from './../Models/event.model';
+import { ControlRegister } from './../Models/control-register.model';
 import { Component, Input } from '@angular/core';
 
 
@@ -11,5 +11,5 @@ import { Component, Input } from '@angular/core';
     `
 })
 export class CalendarComponent{
-    @Input() events: Event[];
+    @Input() events: ControlRegister[];
 }

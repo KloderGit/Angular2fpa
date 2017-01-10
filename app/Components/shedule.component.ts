@@ -3,7 +3,7 @@ import { discipline } from './../Data/discipline.mock.model';
 import { Teacher } from './../Models/teacher.mode';
 import { Discipline } from './../Models/discipline.model';
 import { events } from './../Data/events.mock.data';
-import { Event } from './../Models/event.model';
+import { ControlRegister } from './../Models/control-register.model';
 import { Component, OnInit, ElementRef } from '@angular/core';
 
 @Component({
@@ -13,7 +13,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 })
 
 export class SheduleComponent implements OnInit {
-    events: Event[];
+    events: ControlRegister[];
     teachers: Teacher[];
     disciplines: Discipline[];
 

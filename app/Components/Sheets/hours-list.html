@@ -1,12 +1,18 @@
 
-<button (click) = "ddd()"></button>
+<button (click) = "ddd()">sdsdsd</button>
 
 
-<div *ngFor = "let row of rangesArray" class="hour-range">
-    <!--<div *ngFor = "let row of minutesArray" style="float: left; width: 10px; height: 10px; background-color: #333; margin: 2px 2px"></div>-->0
+<div *ngFor = "let row of prepare().hours" class="hour-range">    
+    <div *ngFor = "let r of row" style="float: left; height: 100px; 
+                                        background-color: #ccc; margin: 2px 1px"
+                                 [style.width]="r.width + '%'">
+        {{r.width}} <br/>
+        {{ r.id.substr(1,3) }} <br/>
+        {{r.min}}
+    </div>
 <div>
 
-    <p>{{minutesArray.length}}</p>
+    <!--<p>{{minutesArray.length}}</p>-->
 
 <!--
 <div *ngFor = "let row of rangeDivide()" class="hour-range">

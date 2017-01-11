@@ -32,7 +32,7 @@ var AddEvent = (function () {
         this.arrayMinutes = [];
         var tempDate = this.dayDate;
         var minuteSum = 0;
-        for (var i = 0; i < this.minutesCount / vector; i++) {
+        for (var i = 0; i < Math.floor(this.minutesCount / vector); i++) {
             tempDate.setHours(this.min_hour, minuteSum);
             var section = new range_of_hour_model_1.RangeOfHour(tempDate, vector);
             this.ranges.push(section);
@@ -42,11 +42,12 @@ var AddEvent = (function () {
             // }
             minuteSum += vector;
         }
+        console.log(this.ranges);
     };
     AddEvent = __decorate([
         core_1.Component({
             selector: 'add-event',
-            template: "\n        <div style=\"margin: 0 0 30px 0\">\n            <range-time (sliderChanged) = \"ChangeLimits($event)\"></range-time>\n        </div>\n\n        <h3>{{dayDate}}</h3>\n\n        <p>range_min - {{min_hour}}</p>\n        <p>range_max - {{max_hour}}</p>\n        <p>\u0427\u0430\u0441\u043E\u0432 - {{hoursCount}}</p>\n        <p>\u041C\u0438\u043D\u0443\u0442 - {{minutesCount}}</p>\n\n        <button (click) = \"divideRange(55)\">\u0420\u0430\u0437\u0431\u0438\u0442\u044C \u043F\u043E 10 \u043C\u0438\u043D\u0443\u0442</button>\n\n        <div style=\"width:600px; margin: 0 auto\">\n            <hour-list  [range_min_hour] = \"min_hour\" \n                        [range_max_hour] = \"max_hour\"\n                        [rangesArray] = \"ranges\"\n                        [minutesArray] = \"arrayMinutes\"\n            ></hour-list>\n        </div>\n\n\n    "
+            template: "\n        <div style=\"margin: 0 0 30px 0\">\n            <range-time (sliderChanged) = \"ChangeLimits($event)\"></range-time>\n        </div>\n\n        <h3>{{dayDate}}</h3>\n\n        <p>range_min - {{min_hour}}</p>\n        <p>range_max - {{max_hour}}</p>\n        <p>\u0427\u0430\u0441\u043E\u0432 - {{hoursCount}}</p>\n        <p>\u041C\u0438\u043D\u0443\u0442 - {{minutesCount}}</p>\n\n        <button (click) = \"divideRange(25)\">\u0420\u0430\u0437\u0431\u0438\u0442\u044C \u043F\u043E 10 \u043C\u0438\u043D\u0443\u0442</button>\n\n        <div style=\"width:600px; margin: 0 auto\">\n            <hour-list  [range_min_hour] = \"min_hour\" \n                        [range_max_hour] = \"max_hour\"\n                        [rangesArray] = \"ranges\"\n                        [minutesArray] = \"arrayMinutes\"\n            ></hour-list>\n        </div>\n\n\n    "
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute])
     ], AddEvent);

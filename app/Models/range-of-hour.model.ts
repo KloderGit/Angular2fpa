@@ -5,6 +5,8 @@ export class RangeOfHour{
     id: string;
     startTime: Date;
 
+    isSelected: true;
+
     hour: number;
     minute: number;
     width: number;

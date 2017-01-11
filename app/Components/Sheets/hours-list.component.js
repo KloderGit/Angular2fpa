@@ -22,8 +22,7 @@ var HoursList = (function () {
         return result;
     };
     HoursList.prototype.ddd = function () {
-        this.ooo = this.prepare();
-        console.log(this.ooo);
+        console.log(this.prepare());
     };
     HoursList.prototype.prepare = function () {
         var objFull = {
@@ -32,10 +31,10 @@ var HoursList = (function () {
         var oststok;
         var _loop_1 = function(h) {
             var hour = [];
-            debugger;
             if (oststok != undefined) {
                 var obj = {
                     id: oststok.id,
+                    min: oststok.minute,
                     width: oststok.width
                 };
                 hour.push(obj);
@@ -45,11 +44,12 @@ var HoursList = (function () {
                 return item.hour == h;
             });
             for (var i = 0; i < array.length; i++) {
-                var currentRange = this_1.rangesArray[i];
-                if (currentRange.width + currentRange.minute < 60) {
+                var currentRange = array[i];
+                if (currentRange.width + currentRange.minute <= 60) {
                     var obj = {
                         id: currentRange.id,
-                        width: currentRange.width
+                        min: currentRange.minute,
+                        width: Math.floor(100 / (60 / currentRange.width))
                     };
                     hour.push(obj);
                     oststok = undefined;
@@ -57,12 +57,14 @@ var HoursList = (function () {
                 if (currentRange.width + currentRange.minute > 60) {
                     var obj = {
                         id: currentRange.id,
-                        width: 60 - currentRange.minute
+                        min: currentRange.minute,
+                        width: Math.floor(100 / (60 / (60 - currentRange.minute)))
                     };
                     hour.push(obj);
                     oststok = {
                         id: currentRange.id,
-                        width: currentRange.width - (60 - currentRange.minute)
+                        min: currentRange.minute,
+                        width: Math.floor(100 / (60 / (currentRange.width - (60 - currentRange.minute))))
                     };
                 }
             }
@@ -72,6 +74,7 @@ var HoursList = (function () {
         for (var h = this.range_min_hour; h < this.range_max_hour; h++) {
             _loop_1(h);
         }
+        console.log(objFull);
         return objFull;
     };
     __decorate([

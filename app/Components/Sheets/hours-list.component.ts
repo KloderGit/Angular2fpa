@@ -22,8 +22,6 @@ export class HoursList implements OnInit {
     @Input() rangesArray: RangeOfHour[];
     @Input() minutesArray: MinuteOfHour[];
 
-    ooo;
-
     constructor() {}
 
     ngOnInit() { }
@@ -39,8 +37,7 @@ export class HoursList implements OnInit {
     }
 
     ddd(){
-        this.ooo = this.prepare();
-        console.log(this.ooo);
+        console.log( this.prepare() );
     }
 
     prepare() {
@@ -52,10 +49,11 @@ export class HoursList implements OnInit {
 
         for (let h = this.range_min_hour; h < this.range_max_hour; h++) {
             let hour = [];
-debugger;
+
             if (oststok != undefined) {
                 let obj = {
                     id: oststok.id,
+                    min: oststok.minute,
                     width: oststok.width
                 };
 
@@ -70,12 +68,12 @@ debugger;
             );
 
             for (let i = 0; i < array.length; i++) {
-                let currentRange = this.rangesArray[i];
-
-                if (currentRange.width + currentRange.minute < 60) {
+                let currentRange = array[i];
+                if (currentRange.width + currentRange.minute <= 60) {
                     let obj = {
                         id: currentRange.id,
-                        width: currentRange.width
+                        min: currentRange.minute,
+                        width: Math.floor(100 / ( 60 / currentRange.width ))
                     };
                     hour.push(obj);
                     oststok = undefined;
@@ -84,18 +82,21 @@ debugger;
                 if (currentRange.width + currentRange.minute > 60) {
                     let obj = {
                         id: currentRange.id,
-                        width: 60 - currentRange.minute
+                        min: currentRange.minute,
+                        width: Math.floor(100 / ( 60 / ( 60 - currentRange.minute ) ))
                     };
                     hour.push(obj);
 
                     oststok = {
                         id: currentRange.id,
-                        width: currentRange.width - ( 60 - currentRange.minute )
+                        min: currentRange.minute,
+                        width: Math.floor(100 / ( 60 / ( currentRange.width - ( 60 - currentRange.minute ) ) ))
                     };
                 }
             }
             objFull.hours.push(hour);
         }
+        console.log(objFull);
         return objFull;
     }
 }

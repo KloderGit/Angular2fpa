@@ -17,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
         <p>Часов - {{hoursCount}}</p>
         <p>Минут - {{minutesCount}}</p>
 
-        <button (click) = "divideRange(55)">Разбить по 10 минут</button>
+        <button (click) = "divideRange(25)">Разбить по 10 минут</button>
 
         <div style="width:600px; margin: 0 auto">
             <hour-list  [range_min_hour] = "min_hour" 
@@ -62,7 +62,7 @@ export class AddEvent implements OnInit{
 
         let tempDate = this.dayDate;
         let minuteSum = 0;
-        for ( let i = 0; i < this.minutesCount / vector; i++ ){
+        for ( let i = 0; i < Math.floor( this.minutesCount / vector); i++ ){
             
             tempDate.setHours( this.min_hour, minuteSum);
             let section = new RangeOfHour( tempDate, vector );
@@ -75,6 +75,7 @@ export class AddEvent implements OnInit{
 
             minuteSum += vector;
         }
+        console.log(this.ranges);
     }
 }
 

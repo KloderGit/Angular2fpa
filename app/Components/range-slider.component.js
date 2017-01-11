@@ -11,13 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var RangeSlider = (function () {
     function RangeSlider() {
-        this.rangeChanged = new core_1.EventEmitter();
+        this.sliderChanged = new core_1.EventEmitter();
     }
     RangeSlider.prototype.ngOnInit = function () {
         this.widgetInit();
     };
     RangeSlider.prototype.widgetInit = function () {
-        var emmiter = this.rangeChanged;
+        var emmiter = this.sliderChanged;
         jQuery('.range-slider').jRange({
             from: 7,
             to: 24,
@@ -47,11 +47,11 @@ var RangeSlider = (function () {
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
-    ], RangeSlider.prototype, "rangeChanged", void 0);
+    ], RangeSlider.prototype, "sliderChanged", void 0);
     RangeSlider = __decorate([
         core_1.Component({
             selector: 'range-time',
-            template: "\n        <div style=\"width: 600px; margin: 0 auto\">\n            <input type=\"hidden\" class=\"range-slider\" value=\"10,23\" />\n        </div>\n    "
+            template: "\n        <div style=\"width: 600px; margin: 0 auto\">\n            <input type=\"hidden\" class=\"range-slider\" value=\"10,13\" />\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], RangeSlider);

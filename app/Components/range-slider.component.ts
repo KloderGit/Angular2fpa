@@ -6,14 +6,14 @@ declare var jQuery:any;
     selector: 'range-time',
     template: `
         <div style="width: 600px; margin: 0 auto">
-            <input type="hidden" class="range-slider" value="10,23" />
+            <input type="hidden" class="range-slider" value="10,13" />
         </div>
     `
 })
 
 export class RangeSlider implements OnInit{
     
-    @Output() rangeChanged = new EventEmitter<number[]>();
+    @Output() sliderChanged = new EventEmitter<number[]>();
 
     constructor(){}
 
@@ -25,7 +25,7 @@ export class RangeSlider implements OnInit{
 
     widgetInit(){
         
-        let emmiter = this.rangeChanged;
+        let emmiter = this.sliderChanged;
 
         jQuery('.range-slider').jRange({
             from: 7,

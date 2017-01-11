@@ -1,6 +1,6 @@
 import { ControlRegisterList } from './../Components/Sheets/control-register-list.component';
 import { AppComponent } from './../Components/app.component';
-import { HoursList } from './../Components/hours-list.component';
+import { HoursList } from './../Components/Sheets/hours-list.component';
 import { AddEvent } from './../Components/addEvent.component';
 import { RangeSlider } from './../Components/range-slider.component';
 import { DataManager } from './../Data/DataManager';

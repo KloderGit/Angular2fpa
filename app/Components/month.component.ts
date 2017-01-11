@@ -4,6 +4,8 @@ import { CalendarGrid } from './../Models/calendar.mode';
 import { ControlRegister } from './../Models/control-register.model';
 import { Component, Input, OnInit } from '@angular/core';
 
+import { Guid } from './../Models/functions';
+
 @Component({
     moduleId: module.id,
     selector: 'month',
@@ -28,7 +30,7 @@ export class MonthComponent implements OnInit{
     }   
 
     addEvent(day){
-        this.dataManager.addEvent( new ControlRegister(this.guid(), day.date, this.disciplineId ) )
+        this.dataManager.addEvent( new ControlRegister(Guid(), day.date, this.disciplineId ) )
             .then( res => 
             {
                 if ( res == true ){
@@ -44,13 +46,5 @@ export class MonthComponent implements OnInit{
     selectDay(day){
         this.router.navigate(['/register-list', + day.date ]);
     }
-
-    guid() {
-        return this._p8() + this._p8(true) + this._p8(true) + this._p8();
-    }
     
-    _p8(s?) {
-            var p = (Math.random().toString(16)+"000000000").substr(2,8);
-            return s ? "-" + p.substr(0,4) + "-" + p.substr(4,4) : p ;
-    }
 }

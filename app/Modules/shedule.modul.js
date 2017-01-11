@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var control_register_list_component_1 = require('./../Components/Sheets/control-register-list.component');
 var app_component_1 = require('./../Components/app.component');
-var hours_list_component_1 = require('./../Components/hours-list.component');
+var hours_list_component_1 = require('./../Components/Sheets/hours-list.component');
 var addEvent_component_1 = require('./../Components/addEvent.component');
 var range_slider_component_1 = require('./../Components/range-slider.component');
 var DataManager_1 = require('./../Data/DataManager');

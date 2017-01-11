@@ -13,6 +13,7 @@ var DataManager_1 = require('./../Data/DataManager');
 var calendar_mode_1 = require('./../Models/calendar.mode');
 var control_register_model_1 = require('./../Models/control-register.model');
 var core_1 = require('@angular/core');
+var functions_1 = require('./../Models/functions');
 var MonthComponent = (function () {
     function MonthComponent(dataManager, router) {
         this.dataManager = dataManager;
@@ -26,7 +27,7 @@ var MonthComponent = (function () {
         return this.events[0].date.toLocaleString("ru-ru", { month: "long" }) + " " + this.events[0].date.getFullYear();
     };
     MonthComponent.prototype.addEvent = function (day) {
-        this.dataManager.addEvent(new control_register_model_1.ControlRegister(this.guid(), day.date, this.disciplineId))
+        this.dataManager.addEvent(new control_register_model_1.ControlRegister(functions_1.Guid(), day.date, this.disciplineId))
             .then(function (res) {
             if (res == true) {
                 console.log("Успешно");
@@ -38,13 +39,6 @@ var MonthComponent = (function () {
     };
     MonthComponent.prototype.selectDay = function (day) {
         this.router.navigate(['/register-list', +day.date]);
-    };
-    MonthComponent.prototype.guid = function () {
-        return this._p8() + this._p8(true) + this._p8(true) + this._p8();
-    };
-    MonthComponent.prototype._p8 = function (s) {
-        var p = (Math.random().toString(16) + "000000000").substr(2, 8);
-        return s ? "-" + p.substr(0, 4) + "-" + p.substr(4, 4) : p;
     };
     __decorate([
         core_1.Input(), 

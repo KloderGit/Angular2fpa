@@ -43,6 +43,10 @@ export class MonthComponent implements OnInit{
         );
     }
 
+    toShared(day){
+        this.router.navigate(['/addshared', + day.date ]);
+    }
+
     selectDay(day){
         this.router.navigate(['/register-list', + day.date ]);
     }

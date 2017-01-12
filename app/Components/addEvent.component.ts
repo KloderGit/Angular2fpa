@@ -6,8 +6,15 @@ import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'add-event',
     template: `
+
+        <time-picker></time-picker>
+
         <div style="margin: 0 0 30px 0">
-            <range-time (sliderChanged) = "ChangeLimits($event)"></range-time>
+            <range-time-slider (sliderChanged) = "ChangeLimits($event)"
+                                [min] = '7'
+                                [max] = '24' [step] = '1'
+                                [snap] = 'false'>
+            </range-time-slider>
         </div>
 
         <h3>{{dayDate}}</h3>
@@ -19,7 +26,7 @@ import { Component, OnInit } from '@angular/core';
 
         <button (click) = "divideRange(25)">Разбить по 10 минут</button>
 
-        <div style="width:600px; margin: 0 auto">
+        <div>
             <hour-list  [range_min_hour] = "min_hour" 
                         [range_max_hour] = "max_hour"
                         [rangesArray] = "ranges"

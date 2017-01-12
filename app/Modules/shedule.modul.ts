@@ -1,3 +1,6 @@
+import { AddRegisterFormShared } from './../Components/Sheets/add-register-form-shared';
+import { TimePicker } from './../Widgets/time-picker';
+import { AddRegisterFormSimple } from './../Components/Sheets/add-register-form-simple';
 import { ControlRegisterList } from './../Components/Sheets/control-register-list.component';
 import { AppComponent } from './../Components/app.component';
 import { HoursList } from './../Components/Sheets/hours-list.component';
@@ -26,13 +29,14 @@ var routerMaps = RouterModule.forRoot([
     { path: 'calendar', component: SheduleComponent },
     { path: 'addEvent/:data', component: AddEvent },
     { path: 'register-list/:data', component: ControlRegisterList },
+    { path: 'addshared/:data', component: AddRegisterFormShared },
     { path: '', component: SheduleComponent },
     { path: '**', component: SheduleComponent }
 ]);
 
 @NgModule({
     imports: [ BrowserModule, FormsModule, routerMaps ],
-    declarations: [ AppComponent, SheduleComponent, CalendarComponent, MonthComponent, ControlRegisterList,
+    declarations: [ AppComponent, SheduleComponent, CalendarComponent, MonthComponent, ControlRegisterList, TimePicker, AddRegisterFormShared,
                     DayComponent, DayEventPipe, MonthEventsPipe, DisciplineComponent,
                     TeacherComponent, TeacherListComponent, DisciplinePipe, OneDisciplinePipe, RangeSlider, AddEvent, HoursList ],
     bootstrap: [ AppComponent ],

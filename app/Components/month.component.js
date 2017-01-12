@@ -37,6 +37,9 @@ var MonthComponent = (function () {
             }
         });
     };
+    MonthComponent.prototype.toShared = function (day) {
+        this.router.navigate(['/addshared', +day.date]);
+    };
     MonthComponent.prototype.selectDay = function (day) {
         this.router.navigate(['/register-list', +day.date]);
     };

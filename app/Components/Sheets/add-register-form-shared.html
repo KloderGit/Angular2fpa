@@ -1,0 +1,13 @@
+
+
+<h3>{{date}}</h3>
+
+<label>
+    Начало экзамена в:
+    <time-picker (timepickerChanged) = "changeStartTime($event)"></time-picker>
+</label>
+
+<label>
+    Окончание экзамена:
+    <time-picker (timepickerChanged) = "changeEndTime($event)"></time-picker>
+</label>

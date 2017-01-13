@@ -11,3 +11,16 @@
     Окончание экзамена:
     <time-picker (timepickerChanged) = "changeEndTime($event)"></time-picker>
 </label>
+
+<p>{{startTime}}</p>
+<p>{{endTime}}</p>
+<br/>
+<p>{{startIsactive}}</p>
+<p>{{endIsactive}}</p>
+
+<div *ngIf="isActive()" class="hour-block">
+    <p>Добавлен экзамен: <br/>
+        Начало: {{startTime.getHours()}}:{{startTime.getMinutes()}} <br/>
+        Продолжительность: {{ (endTime - startTime) / 60000  }} мин.
+    </p>
+</div>

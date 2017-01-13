@@ -27,11 +27,11 @@ var AddRegisterFormShared = (function () {
     };
     AddRegisterFormShared.prototype.changeStartTime = function (startTime) {
         if (!isFinite(startTime[0]) || !isFinite(startTime[0])) {
-            this.endIsactive = false;
+            this.startIsactive = false;
         }
         else {
-            this.endTime.setHours(startTime[0], startTime[1]);
-            this.endIsactive = true;
+            this.startTime.setHours(startTime[0], startTime[1]);
+            this.startIsactive = true;
         }
     };
     AddRegisterFormShared.prototype.changeEndTime = function (endTime) {
@@ -41,6 +41,14 @@ var AddRegisterFormShared = (function () {
         else {
             this.endTime.setHours(endTime[0], endTime[1]);
             this.endIsactive = true;
+        }
+    };
+    AddRegisterFormShared.prototype.isActive = function () {
+        if (this.startIsactive && this.endIsactive) {
+            return true;
+        }
+        else {
+            return false;
         }
     };
     AddRegisterFormShared = __decorate([

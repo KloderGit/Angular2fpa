@@ -21,6 +21,7 @@ export class AddRegisterFormShared implements OnInit{
 
     ngOnInit(){
         let urlParam = this.route.snapshot.params['data'];
+
         this.date.setTime(urlParam);
         this.startTime.setTime(urlParam); 
         this.endTime.setTime(urlParam); 
@@ -28,11 +29,11 @@ export class AddRegisterFormShared implements OnInit{
 
     changeStartTime(startTime: number[]){
         if (!isFinite(startTime[0]) || !isFinite(startTime[0]) ){
-            this.endIsactive = false;
+            this.startIsactive = false;
         } else {
-            this.endTime.setHours( startTime[0], startTime[1] );
-            this.endIsactive = true;
-        }    
+            this.startTime.setHours( startTime[0], startTime[1] );
+            this.startIsactive = true;
+        }
     }
 
     changeEndTime(endTime: number[]){
@@ -40,7 +41,15 @@ export class AddRegisterFormShared implements OnInit{
             this.endIsactive = false;
         } else {
             this.endTime.setHours( endTime[0], endTime[1] );
-            this.endIsactive = true;
+            this.endIsactive = true;            
+        }
+    }
+
+    isActive(){
+        if ( this.startIsactive && this.endIsactive ){
+            return true;
+        } else {
+            return false;
         }
     }
 }

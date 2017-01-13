@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var range_slider_1 = require('./../Widgets/range-slider');
 var add_register_form_shared_1 = require('./../Components/Sheets/add-register-form-shared');
 var time_picker_1 = require('./../Widgets/time-picker');
 var control_register_list_component_1 = require('./../Components/Sheets/control-register-list.component');
@@ -45,9 +46,9 @@ var SheduleAppModule = (function () {
     SheduleAppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, routerMaps],
-            declarations: [app_component_1.AppComponent, shedule_component_1.SheduleComponent, calendar_component_1.CalendarComponent, month_component_1.MonthComponent, control_register_list_component_1.ControlRegisterList, time_picker_1.TimePicker, add_register_form_shared_1.AddRegisterFormShared,
+            declarations: [app_component_1.AppComponent, shedule_component_1.SheduleComponent, calendar_component_1.CalendarComponent, month_component_1.MonthComponent, control_register_list_component_1.ControlRegisterList, time_picker_1.TimePicker, add_register_form_shared_1.AddRegisterFormShared, range_slider_1.RangeSlider,
                 day_component_1.DayComponent, day_event_pipe_1.DayEventPipe, month_events_pipe_1.MonthEventsPipe, discipline_component_1.DisciplineComponent,
-                teachers_component_1.TeacherComponent, teachers_list_component_1.TeacherListComponent, disciplines_pipe_1.DisciplinePipe, one_discipline_pipe_1.OneDisciplinePipe, range_slider_component_1.RangeSlider, addEvent_component_1.AddEvent, hours_list_component_1.HoursList],
+                teachers_component_1.TeacherComponent, teachers_list_component_1.TeacherListComponent, disciplines_pipe_1.DisciplinePipe, one_discipline_pipe_1.OneDisciplinePipe, range_slider_component_1.RangeSliderRange, addEvent_component_1.AddEvent, hours_list_component_1.HoursList],
             bootstrap: [app_component_1.AppComponent],
             providers: [DataManager_1.DataManager]
         }), 

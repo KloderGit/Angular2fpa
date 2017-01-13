@@ -1,5 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+declare var $:any;
 
 @Component({
     moduleId: module.id,
@@ -17,14 +18,20 @@ export class AddRegisterFormShared implements OnInit{
     startTime = new Date();
     endTime = new Date();
 
+    studentCount: number;
+
     constructor( private route: ActivatedRoute ){}
 
     ngOnInit(){
         let urlParam = this.route.snapshot.params['data'];
 
+        this.init_wizard_form();
+
         this.date.setTime(urlParam);
         this.startTime.setTime(urlParam); 
         this.endTime.setTime(urlParam); 
+
+        this.studentCount = 90;        
     }
 
     changeStartTime(startTime: number[]){
@@ -45,11 +52,57 @@ export class AddRegisterFormShared implements OnInit{
         }
     }
 
+    studensCountChange( count: number){
+        this.studentCount = count;
+    }
+
     isActive(){
         if ( this.startIsactive && this.endIsactive ){
             return true;
         } else {
             return false;
+        }
+    }
+
+    getDateStringRu(){
+        return this.date.getDay() + " " + this.date.toLocaleString("ru-ru", { month: "long" }) + " " + this.date.getFullYear();
+    }  
+
+    init_wizard_form(){
+        $(document).ready(function () {
+            //Initialize tooltips
+            $('.nav-tabs > li a[title]').tooltip();
+            
+            //Wizard
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+                var $target = $(e.target);
+            
+                if ($target.parent().hasClass('disabled')) {
+                    return false;
+                }
+            });
+
+            $(".next-step").click(function (e) {
+
+                var $active = $('.wizard .nav-tabs li.active');
+                $active.next().removeClass('disabled');
+                nextTab($active);
+
+            });
+            $(".prev-step").click(function (e) {
+
+                var $active = $('.wizard .nav-tabs li.active');
+                prevTab($active);
+
+            });
+        });
+
+        function nextTab(elem) {
+            $(elem).next().find('a[data-toggle="tab"]').click();
+        }
+        function prevTab(elem) {
+            $(elem).prev().find('a[data-toggle="tab"]').click();
         }
     }
 }

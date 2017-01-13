@@ -11,7 +11,7 @@ declare var jQuery:any;
     `
 })
 
-export class RangeSlider implements OnInit{
+export class RangeSliderRange implements OnInit{
     
     @Output() sliderChanged = new EventEmitter<number[]>();
     @Input() min: number;

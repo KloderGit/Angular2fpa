@@ -4,7 +4,12 @@ declare var jQuery:any;
 @Component({
     selector: 'time-picker',
     template: `
-        <p><input type="time" (change) = "onChange($event.target)"></p>
+        <div class="input-group input-group-lg" style="width: 300px">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            </span>
+            <input type="time" class="form-control" aria-describedby="sizing-addon1" (change) = "onChange($event.target)">
+        </div>
     `
 })
 export class TimePicker{

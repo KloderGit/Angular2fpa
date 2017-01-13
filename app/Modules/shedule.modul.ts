@@ -1,3 +1,4 @@
+import { RangeSlider } from './../Widgets/range-slider';
 import { AddRegisterFormShared } from './../Components/Sheets/add-register-form-shared';
 import { TimePicker } from './../Widgets/time-picker';
 import { AddRegisterFormSimple } from './../Components/Sheets/add-register-form-simple';
@@ -5,7 +6,7 @@ import { ControlRegisterList } from './../Components/Sheets/control-register-lis
 import { AppComponent } from './../Components/app.component';
 import { HoursList } from './../Components/Sheets/hours-list.component';
 import { AddEvent } from './../Components/addEvent.component';
-import { RangeSlider } from './../Components/range-slider.component';
+import { RangeSliderRange } from './../Components/range-slider.component';
 import { DataManager } from './../Data/DataManager';
 import { MockDataServices } from './../Services/MockDataService';
 import { OneDisciplinePipe } from './../Pipes/one-discipline.pipe';
@@ -36,9 +37,9 @@ var routerMaps = RouterModule.forRoot([
 
 @NgModule({
     imports: [ BrowserModule, FormsModule, routerMaps ],
-    declarations: [ AppComponent, SheduleComponent, CalendarComponent, MonthComponent, ControlRegisterList, TimePicker, AddRegisterFormShared,
+    declarations: [ AppComponent, SheduleComponent, CalendarComponent, MonthComponent, ControlRegisterList, TimePicker, AddRegisterFormShared, RangeSlider,
                     DayComponent, DayEventPipe, MonthEventsPipe, DisciplineComponent,
-                    TeacherComponent, TeacherListComponent, DisciplinePipe, OneDisciplinePipe, RangeSlider, AddEvent, HoursList ],
+                    TeacherComponent, TeacherListComponent, DisciplinePipe, OneDisciplinePipe, RangeSliderRange, AddEvent, HoursList ],
     bootstrap: [ AppComponent ],
     providers: [ DataManager ]
 })

@@ -21,9 +21,11 @@ var AddRegisterFormShared = (function () {
     }
     AddRegisterFormShared.prototype.ngOnInit = function () {
         var urlParam = this.route.snapshot.params['data'];
+        this.init_wizard_form();
         this.date.setTime(urlParam);
         this.startTime.setTime(urlParam);
         this.endTime.setTime(urlParam);
+        this.studentCount = 90;
     };
     AddRegisterFormShared.prototype.changeStartTime = function (startTime) {
         if (!isFinite(startTime[0]) || !isFinite(startTime[0])) {
@@ -43,12 +45,46 @@ var AddRegisterFormShared = (function () {
             this.endIsactive = true;
         }
     };
+    AddRegisterFormShared.prototype.studensCountChange = function (count) {
+        this.studentCount = count;
+    };
     AddRegisterFormShared.prototype.isActive = function () {
         if (this.startIsactive && this.endIsactive) {
             return true;
         }
         else {
             return false;
+        }
+    };
+    AddRegisterFormShared.prototype.getDateStringRu = function () {
+        return this.date.getDay() + " " + this.date.toLocaleString("ru-ru", { month: "long" }) + " " + this.date.getFullYear();
+    };
+    AddRegisterFormShared.prototype.init_wizard_form = function () {
+        $(document).ready(function () {
+            //Initialize tooltips
+            $('.nav-tabs > li a[title]').tooltip();
+            //Wizard
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                var $target = $(e.target);
+                if ($target.parent().hasClass('disabled')) {
+                    return false;
+                }
+            });
+            $(".next-step").click(function (e) {
+                var $active = $('.wizard .nav-tabs li.active');
+                $active.next().removeClass('disabled');
+                nextTab($active);
+            });
+            $(".prev-step").click(function (e) {
+                var $active = $('.wizard .nav-tabs li.active');
+                prevTab($active);
+            });
+        });
+        function nextTab(elem) {
+            $(elem).next().find('a[data-toggle="tab"]').click();
+        }
+        function prevTab(elem) {
+            $(elem).prev().find('a[data-toggle="tab"]').click();
         }
     };
     AddRegisterFormShared = __decorate([

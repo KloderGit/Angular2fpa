@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var RangeSlider = (function () {
-    function RangeSlider() {
+var RangeSliderRange = (function () {
+    function RangeSliderRange() {
         this.sliderChanged = new core_1.EventEmitter();
         this.labels = [];
     }
-    RangeSlider.prototype.ngOnInit = function () {
+    RangeSliderRange.prototype.ngOnInit = function () {
         for (var i = this.min; i <= this.max; i++) {
             this.labels.push(i);
         }
         this.widgetInit();
     };
-    RangeSlider.prototype.widgetInit = function () {
+    RangeSliderRange.prototype.widgetInit = function () {
         var context = this;
         var emmiter = this.sliderChanged;
         jQuery('.range-slider').jRange({
@@ -52,31 +52,31 @@ var RangeSlider = (function () {
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
-    ], RangeSlider.prototype, "sliderChanged", void 0);
+    ], RangeSliderRange.prototype, "sliderChanged", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Number)
-    ], RangeSlider.prototype, "min", void 0);
+    ], RangeSliderRange.prototype, "min", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Number)
-    ], RangeSlider.prototype, "max", void 0);
+    ], RangeSliderRange.prototype, "max", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Number)
-    ], RangeSlider.prototype, "step", void 0);
+    ], RangeSliderRange.prototype, "step", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Boolean)
-    ], RangeSlider.prototype, "snap", void 0);
-    RangeSlider = __decorate([
+    ], RangeSliderRange.prototype, "snap", void 0);
+    RangeSliderRange = __decorate([
         core_1.Component({
             selector: 'range-time-slider',
             template: "\n        <div style=\"width: 600px; margin: 0 auto\">\n            <input type=\"hidden\" class=\"range-slider\" value=\"10,13\" />\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], RangeSlider);
-    return RangeSlider;
+    ], RangeSliderRange);
+    return RangeSliderRange;
 }());
-exports.RangeSlider = RangeSlider;
+exports.RangeSliderRange = RangeSliderRange;
 //# sourceMappingURL=range-slider.component.js.map

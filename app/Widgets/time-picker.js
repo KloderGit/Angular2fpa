@@ -24,7 +24,7 @@ var TimePicker = (function () {
     TimePicker = __decorate([
         core_1.Component({
             selector: 'time-picker',
-            template: "\n        <p><input type=\"time\" (change) = \"onChange($event.target)\"></p>\n    "
+            template: "\n        <div class=\"input-group input-group-lg\" style=\"width: 300px\">\n            <span class=\"input-group-addon\">\n                <span class=\"glyphicon glyphicon-time\" aria-hidden=\"true\"></span>\n            </span>\n            <input type=\"time\" class=\"form-control\" aria-describedby=\"sizing-addon1\" (change) = \"onChange($event.target)\">\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], TimePicker);
